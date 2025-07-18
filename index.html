@@ -1,66 +1,84 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>张zy的个人主页</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
-        .container { max-width: 800px; margin: 40px auto; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-radius: 10px; padding: 40px; }
-        .avatar { width: 120px; height: 120px; border-radius: 60px; object-fit: cover; border: 2px solid #eee; }
-        h1 { margin-top: 20px; }
-        .section { margin-top: 40px; }
-        .section h2 { color: #3883fa; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        ul { padding-left: 20px; }
-        .contact a { margin-right: 10px; color: #3883fa; text-decoration: none; }
-        .contact a:hover { text-decoration: underline; }
-        @media (max-width:600px) {
-            .container { padding: 16px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eddie Zhang - Personal Website</title>
+  <style>
+    /* 这里是简洁的CSS样式 */
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
+    header { background:#fff; padding:20px; border-bottom:1px solid #eee; position: sticky; top:0; z-index:1000; }
+    header h1 { margin:0; font-size:28px; }
+    nav ul { list-style:none; padding:0; margin:10px 0 0; display:flex; gap:15px; }
+    nav ul li a { text-decoration:none; color:#333; font-weight:bold; }
+    section { padding:40px 20px; max-width:900px; margin:auto; }
+    h2 { font-size:24px; border-bottom:2px solid #ccc; padding-bottom:5px; }
+    ul { padding-left:20px; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px; margin-top:20px; }
+    .gallery img { width:100%; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:20px; background:#fff; border-top:1px solid #eee; }
+    @media (max-width:600px) {
+      header h1 { font-size:22px; }
+      nav ul { flex-direction:column; align-items:flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://avatars.githubusercontent.com/u/your-github-id" alt="头像" class="avatar">
-        <h1>张三</h1>
-        <p>申请XX大学 | 计算机科学方向</p>
-        <div class="contact">
-            <a href="mailto:your@email.com">邮箱</a>
-            <a href="https://github.com/your-github-id" target="_blank">GitHub</a>
-            <a href="tel:+8613800138000">电话</a>
-        </div>
-        <div class="section">
-            <h2>个人简介</h2>
-            <p>
-                我是一名很优秀的学生。
-            </p>
-        </div>
-        <div class="section">
-            <h2>教育背景</h2>
-            <ul>
-                <li>09中学，2019-2022</li>
-                <li>信息学奥赛省一等奖，2021</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>项目经历</h2>
-            <ul>
-                <li>
-                    <strong>智能记单词App</strong> &mdash; 使用Python和Tkinter开发，帮助同学们高效背单词
-                </li>
-                <li>
-                    <strong>个人博客搭建</strong> &mdash; 利用Hexo+GitHub Pages，撰写技术随笔
-                </li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>技能特长</h2>
-            <ul>
-                <li>Python、C++、HTML/CSS/JavaScript</li>
-                <li>算法设计与竞赛</li>
-                <li>英语CET-6</li>
-            </ul>
-        </div>
+  <header>
+    <h1>Eddie Zhang 张祚阳</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#travel">Travel</a></li>
+        <li><a href="#passions">Passions</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="about">
+    <h2>About Eddie / 关于祚阳</h2>
+    <p>Eddie Zhang (张祚阳), born in 2007, is a passionate and resilient young man who has explored much of China and beyond. He is intelligent, athletic, creative, and incredibly determined—as shown by his wheelchair-bound trip to New Zealand after a leg fracture. This website is a celebration of his 18-year journey and a showcase for his university applications.</p>
+  </section>
+  <section id="travel">
+    <h2>Travel Adventures / 足迹之旅</h2>
+    <ul>
+      <li>Inner Mongolia (3 times)</li>
+      <li>Taiwan (3 times)</li>
+      <li>New Zealand (South and North Islands, with wheelchair)</li>
+      <li>USA: California, Arizona, Nevada</li>
+      <li>Canada: Vancouver & UBC Sauder Summer School</li>
+    </ul>
+  </section>
+  <section id="passions">
+    <h2>Passions & Awards / 爱好与荣誉</h2>
+    <ul>
+      <li>🏀 Basketball: District-level team achievements</li>
+      <li>🏊 Swimming, ⚽ Football, 🏸 Badminton</li>
+      <li>🎺 Music: Brass instrument (Tuba)</li>
+      <li>🤖 Programming & Robotics: Asia-Pacific Youth Robotics Champion</li>
+    </ul>
+  </section>
+  <section id="academics">
+    <h2>Academics & Goals / 学业与目标</h2>
+    <p>Eddie has consistently ranked at the top of his class. His academic excellence is matched by a strong desire to study at world-leading institutions like MIT, Harvard Business School, or UBC Sauder School of Business.</p>
+  </section>
+  <section id="gallery">
+    <h2>Gallery / 精彩瞬间</h2>
+    <div class="gallery">
+      <img src="images/eddie_childhood.jpg" alt="Childhood Photo" />
+      <img src="images/nz_wheelchair_trip.jpg" alt="NZ Trip in Wheelchair" />
+      <img src="images/ubc_summer_school.jpg" alt="UBC Summer School" />
+      <img src="images/robot_award.jpg" alt="Robotics Award" />
     </div>
+  </section>
+  <section id="contact">
+    <h2>Contact / 联系方式</h2>
+    <p>Email: <a href="mailto:eddie.zhang@example.com">eddie.zhang@example.com</a></p>
+  </section>
+  <footer>
+    <p>&copy; 2025 Eddie Zhang - All Rights Reserved</p>
+  </footer>
 </body>
 </html>
