@@ -1,51 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Gallery | 相册与视频</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .gallery-year {
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      background: #ff660010;
+      border-left: 4px solid #ff6600;
+      margin-top: 2rem;
+    }
+    .gallery-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.3rem;
+      text-align: center;
+    }
+    .img-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Gallery<br>相册与视频</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home / 首页</a></li>
-                <li><a href="about.html">About / 关于</a></li>
-                <li><a href="academics.html">Academics / 学业</a></li>
-                <li><a href="sports.html">Sports / 运动</a></li>
-                <li><a href="travels.html">Travels / 旅行</a></li>
-                <li><a href="contact.html">Contact / 联系</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Photos</h2>
-            <div class="gallery">
-                <img src="images/eddie_avatar.svg" alt="Eddie Avatar"/>
-                <img src="images/eddie_sports.svg" alt="Sports"/>
-                <img src="images/eddie_travel.svg" alt="Travel"/>
-                <img src="images/eddie_academics.svg" alt="Academics"/>
-            </div>
-            <h2>Videos</h2>
-            <div class="gallery">
-                <img src="images/eddie_video.svg" alt="Video Placeholder"/>
-            </div>
-        </section>
-        <section>
-            <h2>相册与视频</h2>
-            <div class="gallery">
-                <img src="images/eddie_avatar.svg" alt="阳阳头像"/>
-                <img src="images/eddie_sports.svg" alt="运动"/>
-                <img src="images/eddie_travel.svg" alt="旅行"/>
-                <img src="images/eddie_academics.svg" alt="学业"/>
-            </div>
-            <div class="gallery">
-                <img src="images/eddie_video.svg" alt="视频占位"/>
-            </div>
-        </section>
-    </main>
-    <footer><p>&copy; 2025 Eddie Zhang</p></footer>
+  <header class="navbar">
+    <h1 class="site-title">Eddie Zhang</h1>
+    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="sports.html">Sports</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photo Gallery: 2007–2025</h2>
+
+    <!-- Loop through years from 2025 to 2007 -->
+    <!-- Each year will include 3 photos with optional captions -->
+    <!-- Placeholder example -->
+
+    <!-- BEGIN YEAR BLOCK -->
+    <!-- Repeat for each year -->
+    
+    <!-- Template example for each year -->
+    <!-- Replace image URLs and captions with real data later -->
+    <!-- Start year loop -->
+    
+    <!-- generated in code below -->
+    
+    <!-- END year loop -->
+
+    <!-- GENERATED YEAR BLOCKS -->
+    
+    <!-- Loop start -->
+    <!-- Each year has 3 photos with caption -->
+    
+    
+    <!-- Placeholders generated from 2025 to 2007 -->
+    <!-- Example format shown -->
+    
+    
+    <!-- Dynamic Block Below -->
+    
+    <!-- Using JS to show logic, in real file just static HTML -->
+    
+    <!-- START GENERATED BLOCKS -->
+    
+    <!-- This section is auto-generated below -->
+" + Array.from({length: 2025 - 2007 + 1}, (_, i) => {
+      const year = 2025 - i;
+      return `
+    <div class="gallery-year">${year}</div>
+    <div class="gallery-grid">
+      <div class="img-block">
+        <img class="gallery-img" src="https://via.placeholder.com/300x200?text=${year}+Photo+1" alt="${year} Photo 1">
+        <div class="caption">Summer trip highlight</div>
+      </div>
+      <div class="img-block">
+        <img class="gallery-img" src="https://via.placeholder.com/300x200?text=${year}+Photo+2" alt="${year} Photo 2">
+        <div class="caption">Achievement moment</div>
+      </div>
+      <div class="img-block">
+        <img class="gallery-img" src="https://via.placeholder.com/300x200?text=${year}+Photo+3" alt="${year} Photo 3">
+        <div class="caption">Everyday smile</div>
+      </div>
+    </div>`;
+    }).join("\n") + `
+
+    <!-- END GENERATED BLOCKS -->
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+  </footer>
 </body>
 </html>

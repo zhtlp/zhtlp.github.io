@@ -1,45 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sports & Interests | 运动与兴趣</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Sports & Interests<br>运动与兴趣</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home / 首页</a></li>
-                <li><a href="about.html">About / 关于</a></li>
-                <li><a href="academics.html">Academics / 学业</a></li>
-                <li><a href="travels.html">Travels / 旅行</a></li>
-                <li><a href="gallery.html">Gallery / 相册</a></li>
-                <li><a href="contact.html">Contact / 联系</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="section-img"><img src="images/eddie_sports.svg" alt="Sports" /></div>
-        <section>
-            <h2>Sports & Hobbies</h2>
-            <ul>
-                <li>Basketball: District champion team, outstanding performance as point guard.</li>
-                <li>Soccer, badminton, swimming: Regular participant and team player.</li>
-                <li>Music: Euphonium player in school orchestra, multiple performances.</li>
-                <li>Programming & Robotics: National and international awards.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>运动与兴趣爱好</h2>
-            <ul>
-                <li>篮球：所在区冠军团队，主力控球后卫。</li>
-                <li>足球、羽毛球、游泳：积极参与团队活动。</li>
-                <li>音乐：学校管乐团大号手，多次演出。</li>
-                <li>编程与机器人：国内外多项奖项。</li>
-            </ul>
-        </section>
-    </main>
-    <footer><p>&copy; 2025 Eddie Zhang</p></footer>
+  <header class="navbar">
+    <h1 class="site-title">Eddie Zhang</h1>
+    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="sports.html" class="active">Sports</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <h2>Sports Journey</h2>
+    <p>Eddie has trained as a basketball athlete for over a decade, combining physical strength with tactical intelligence and teamwork.</p>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Basketball Career</h3>
+        <p class="highlight">Position: Center | Height: 195cm | Weight: 95kg</p>
+        <p>Starting at age 7, Eddie has been a core team player across city leagues and school tournaments, excelling in rebounds, defense, and leadership on court.</p>
+      </div>
+
+      <div class="card">
+        <h3>Major Honors</h3>
+        <p class="highlight">🏀 City Silver Medalist, 🥇 NYBO Rebound King</p>
+        <p>Named "Rebound King" of NYBO Qingdao Division (2021-22), awarded Best Player at Jr. CBA Camp, and led his team to a city-wide silver medal in high school finals.</p>
+      </div>
+
+      <div class="card">
+        <h3>Multi-Sport Athlete</h3>
+        <p class="highlight">Tennis, Swimming, Football</p>
+        <p>Beyond basketball, Eddie actively participates in competitive swimming, tennis rallies, and school football matches, nurturing all-round athletic development.</p>
+      </div>
+
+      <div class="card">
+        <h3>Resilience & Recovery</h3>
+        <p class="highlight">Crutch Champion</p>
+        <p>Despite injuries and physical setbacks, Eddie traveled to UBC’s summer program on crutches, refusing to let obstacles slow down his personal growth or mission.</p>
+      </div>
+    </section>
+
+    <div style="text-align:center; margin-top: 2rem;">
+      <a href="gallery.html" class="cta-button">See Sports Photos</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+  </footer>
 </body>
 </html>
