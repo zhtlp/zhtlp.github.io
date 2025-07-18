@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background: #f6fbff;
+    color: #2c3e50;
+}
+header {
+    background: linear-gradient(90deg, #e3f0ff 0%, #f6fbff 100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 32px 0 10px 0;
+    text-align: center;
+    position: relative;
+}
+header .avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    background: #d2edfa;
+    border: 3px solid #b8e4fa;
+}
+.lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+}
+.lang-switch button {
+    margin: 0 5px;
+    padding: 6px 14px;
+    border: none;
+    background: #e0ecfb;
+    color: #1857a3;
+    font-weight: bold;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.lang-switch button:hover {
+    background: #bfd7f4;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0 0 0;
+}
+nav a {
+    text-decoration: none;
+    color: #2d6af3;
+    font-size: 18px;
+    transition: color 0.2s;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+}
+nav a:hover {
+    color: #50c5b7;
+    border-bottom: 2px solid #50c5b7;
+}
+main {
+    max-width: 800px;
+    margin: 42px auto 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 48px 36px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+.section-img img, .hero-img img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 14px;
+    margin: 44px auto 0 auto;
+    display: block;
+    background: #e6f4fa;
+    border: 2px solid #b8e4fa;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.gallery img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f3f9ff;
+    border: 1px solid #d2edfa;
+}
+footer {
+    text-align: center;
+    padding: 25px 0;
+    color: #86a3c3;
+    font-size: 15px;
+    background: #f6fbff;
+    margin-top: 52px;
+    border-top: 1px solid #eaeaea;
+}
+@media (max-width:600px) {
+    main {
+        padding: 22px 8px;
+    }
+    nav ul {
+        gap: 10px;
+        font-size: 16px;
+    }
+    header .avatar img {
+        width: 80px;
+        height: 80px;
+    }
+    .gallery img, .section-img img, .hero-img img {
+        width: 96px;
+        height: 96px;
+        max-width: 100%;
+        margin: 22px auto;
+    }
+}

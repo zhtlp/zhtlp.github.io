@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eddie Zhang | Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="lang-switch">
+            <button id="en-btn" onclick="setLanguage('en')">EN</button>
+            <button id="zh-btn" onclick="setLanguage('zh')">中文</button>
+        </div>
+        <div class="avatar">
+            <img src="images/eddie_avatar.svg" alt="Eddie Avatar" />
+        </div>
+        <h1 id="main-title">Eddie Zhang (张祚阳)</h1>
+        <h2 id="subtitle">A Journey of Growth and Achievements</h2>
+        <nav>
+            <ul>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="academics.html" id="nav-academics">Academics</a></li>
+                <li><a href="sports.html" id="nav-sports">Sports & Interests</a></li>
+                <li><a href="travels.html" id="nav-travels">Travels</a></li>
+                <li><a href="gallery.html" id="nav-gallery">Gallery</a></li>
+                <li><a href="contact.html" id="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="en-section">
+            <h3>Welcome!</h3>
+            <p>
+                This website is a special gift for Eddie’s 18th birthday — a summary of his wonderful journey, achievements, and dreams. Eddie (Zhang Zuoyang) is passionate about sports, music, technology, and has traveled widely across China and abroad. Explore his story, achievements, and memories!
+            </p>
+        </section>
+        <section id="zh-section" style="display:none;">
+            <h3>欢迎！</h3>
+            <p>
+                这个网站是为阳阳18岁生日准备的特别礼物——记录他18年来的成长、成就与梦想。张祚阳（Eddie）热爱运动、音乐、科技，曾游历中国及世界多地。欢迎了解他的故事、成就和美好回忆！
+            </p>
+        </section>
+        <div class="hero-img">
+            <img src="images/eddie_hero.svg" alt="Eddie Basketball" />
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Eddie Zhang | Powered by GitHub Pages</p>
+    </footer>
+    <script>
+        function setLanguage(lang) {
+            if(lang === 'en') {
+                document.getElementById('en-section').style.display = 'block';
+                document.getElementById('zh-section').style.display = 'none';
+                document.getElementById('main-title').textContent = "Eddie Zhang (张祚阳)";
+                document.getElementById('subtitle').textContent = "A Journey of Growth and Achievements";
+                document.getElementById('nav-about').textContent = "About";
+                document.getElementById('nav-academics').textContent = "Academics";
+                document.getElementById('nav-sports').textContent = "Sports & Interests";
+                document.getElementById('nav-travels').textContent = "Travels";
+                document.getElementById('nav-gallery').textContent = "Gallery";
+                document.getElementById('nav-contact').textContent = "Contact";
+            } else {
+                document.getElementById('en-section').style.display = 'none';
+                document.getElementById('zh-section').style.display = 'block';
+                document.getElementById('main-title').textContent = "张祚阳 (Eddie Zhang)";
+                document.getElementById('subtitle').textContent = "成长与成就之路";
+                document.getElementById('nav-about').textContent = "关于";
+                document.getElementById('nav-academics').textContent = "学业与成就";
+                document.getElementById('nav-sports').textContent = "运动与兴趣";
+                document.getElementById('nav-travels').textContent = "旅行足迹";
+                document.getElementById('nav-gallery').textContent = "相册与视频";
+                document.getElementById('nav-contact').textContent = "联系方式";
+            }
+        }
+    </script>
+</body>
+</html>
