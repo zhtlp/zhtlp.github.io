@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eddie Zhang</title>
-  <meta name="description" content="Eddie Zhang - A journey of resilience, brilliance, and boundless curiosity." />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Eddie Zhang - 篮球、机器人、环球旅行</title>
+  <meta name="description" content="Eddie Zhang，学生、机器人冠军、篮球运动员，探索世界与自我成长的故事，包含成长历程、学术、体育、环球旅行等内容。" />
+  <meta name="keywords" content="Eddie Zhang, 张艾迪, 篮球, 机器人, 环球旅行, 学生, UBC, 个人网站" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <!-- Open Graph 社交分享标签 -->
+  <meta property="og:title" content="Eddie Zhang - 篮球、机器人、环球旅行" />
+  <meta property="og:description" content="Eddie Zhang，学生、机器人冠军、篮球运动员，探索世界与自我成长的故事。" />
+  <meta property="og:image" content="images/M1.jpeg" />
+  <meta property="og:url" content="https://zhtlp.github.io/" />
+  <meta property="og:type" content="website" />
   <style>
     body {
       margin: 0;
@@ -17,29 +24,44 @@
       background-color: #fff;
       text-align: center;
       padding: 1rem 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
     .site-title {
       color: #ff6600;
       font-size: 2rem;
       margin: 0;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
     .site-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #666;
       margin: 0.25rem 0 1rem;
     }
     .nav {
       margin-top: 0.5rem;
+      display: inline-flex;
+      background: #f8fbff;
+      border-radius: 24px;
+      padding: 0.3rem 1.2rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
     }
     .nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #333;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 0.38rem 1.1rem;
+      border-radius: 20px;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+      letter-spacing: 0.02em;
+      display: inline-block;
     }
     .nav a.active, .nav a:hover {
-      color: #ff6600;
+      background: #ff6600;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(255,102,0,0.09);
     }
     .hero-section {
       display: flex;
@@ -47,45 +69,53 @@
       justify-content: center;
       align-items: center;
       padding: 2rem 1rem;
-      background: linear-gradient(to right, #eef4f9, #f8fbff);
+      background: #f8fbff;
     }
     .hero-image img {
       width: 100vw;
       max-width: 400px;
-      height: 56vw; /* 16:9比例 */
+      height: 56vw;
       max-height: 400px;
       object-fit: cover;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       display: block;
       margin: 0 auto;
+      /* border: 3px solid #ff6600;  <-- 已去掉橙色边框 */
     }
     .hero-text {
       max-width: 500px;
       margin-left: 2rem;
       flex: 1;
     }
-    .hero-text h2 {
+    .hero-text h1 {
       font-size: 2rem;
-      color: #222;
+      color: #ff6600;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
     }
     .hero-text p {
       font-size: 1rem;
       color: #444;
       margin: 1rem 0;
+      font-weight: 500;
     }
     .cta-button {
-      background-color: #ff6600;
-      color: white;
-      padding: 0.6rem 1.2rem;
+      background-color: #fff;
+      color: #ff6600;
+      padding: 0.65rem 1.3rem;
       text-decoration: none;
-      border-radius: 25px;
+      border-radius: 28px;
       font-weight: bold;
-      transition: background 0.3s;
+      font-size: 1.05rem;
+      border: 2px solid #ff6600;
+      box-shadow: 0 2px 8px rgba(255,102,0,0.08);
+      transition: background 0.2s, color 0.2s;
       display: inline-block;
     }
     .cta-button:hover {
-      background-color: #e55a00;
+      background-color: #ff6600;
+      color: #fff;
     }
     .cards {
       display: flex;
@@ -95,13 +125,24 @@
       padding: 2rem 1rem;
     }
     .card {
-      background: white;
+      background: #fff;
       border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       padding: 1.5rem;
       max-width: 300px;
       flex: 1;
       text-align: center;
+      border: 2px solid #f8fbff;
+      transition: box-shadow 0.18s, border 0.18s;
+    }
+    .card:hover {
+      border: 2px solid #ff6600;
+      box-shadow: 0 8px 24px rgba(255,102,0,0.12);
+    }
+    .card h2 {
+      font-size: 1.18rem;
+      color: #ff6600;
+      margin-bottom: 0.5rem;
     }
     .card .highlight {
       font-weight: bold;
@@ -111,16 +152,19 @@
     .more-button {
       margin-top: 1rem;
       display: inline-block;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.1rem;
       border: 2px solid #ff6600;
       border-radius: 20px;
       text-decoration: none;
       color: #ff6600;
-      transition: background 0.3s, color 0.3s;
+      background: #fff;
+      font-weight: 600;
+      transition: background 0.18s, color 0.18s, border 0.18s;
+      box-shadow: 0 2px 8px rgba(255,102,0,0.08);
     }
     .more-button:hover {
       background: #ff6600;
-      color: white;
+      color: #fff;
     }
     .footer {
       text-align: center;
@@ -129,6 +173,7 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: 2rem;
+      letter-spacing: 1px;
     }
     @media (max-width: 800px) {
       .hero-section {
@@ -164,10 +209,10 @@
 
   <main class="hero-section">
     <div class="hero-image">
-      <img src="images/M1.jpeg" alt="Eddie with a cat" />
+      <img src="images/M1.jpeg" alt="Eddie Zhang与猫的合影" />
     </div>
     <div class="hero-text">
-      <h2>Hello, I’m Eddie Zhang</h2>
+      <h1>Hello, I’m Eddie Zhang</h1>
       <p>A student, athlete, innovator and global citizen with a passion for excellence.</p>
       <a href="about.html" class="cta-button">Discover My Story</a>
     </div>
@@ -175,19 +220,19 @@
 
   <section class="cards">
     <div class="card">
-      <h3>Basketball Action</h3>
+      <h2>Basketball Action</h2>
       <p class="highlight">Athletics & Discipline</p>
       <p>Over 10 years of basketball training. From local courts to national competitions, I thrive on teamwork and tenacity.</p>
       <a href="sports.html" class="more-button">More</a>
     </div>
     <div class="card">
-      <h3>Robotics Champion</h3>
+      <h2>Robotics Champion</h2>
       <p class="highlight">Technology & Leadership</p>
       <p>Captain of Asia-Pacific Champion robotics team. Leading innovation with code and collaboration.</p>
       <a href="academics.html" class="more-button">More</a>
     </div>
     <div class="card">
-      <h3>UBC Summer Campus</h3>
+      <h2>UBC Summer Campus</h2>
       <p class="highlight">Explorer of the World</p>
       <p>Traveled across China, U.S., New Zealand, Canada — even on crutches. Curiosity is my compass.</p>
       <a href="about.html" class="more-button">More</a>
@@ -195,7 +240,11 @@
   </section>
 
   <footer class="footer">
-    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
   </footer>
+  <script>
+    // 页脚年份自动更新
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
