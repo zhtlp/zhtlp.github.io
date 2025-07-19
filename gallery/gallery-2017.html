@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery 2017</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .photo-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      text-align: center;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .caption {
+      padding: 0.75rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="site-title">Eddie Zhang</h1>
+    <nav class="nav">
+         <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../academics.html">Academics</a>
+      <a href="../sports.html">Sports</a>
+      <a href="../gallery.html" class="active">Gallery</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photos from 2017</h2>
+    <div class="photo-grid">
+      
+      <div class="photo-card">
+        <img src="https://via.placeholder.com/400x300?text=2017+Photo+1" alt="Photo 1">
+        <div class="caption">Description of photo 1 in 2017</div>
+      </div>
+      <div class="photo-card">
+        <img src="https://via.placeholder.com/400x300?text=2017+Photo+2" alt="Photo 2">
+        <div class="caption">Description of photo 2 in 2017</div>
+      </div>
+      <div class="photo-card">
+        <img src="https://via.placeholder.com/400x300?text=2017+Photo+3" alt="Photo 3">
+        <div class="caption">Description of photo 3 in 2017</div>
+      </div>
+      <div class="photo-card">
+        <img src="https://via.placeholder.com/400x300?text=2017+Photo+4" alt="Photo 4">
+        <div class="caption">Description of photo 4 in 2017</div>
+      </div>
+      <div class="photo-card">
+        <img src="https://via.placeholder.com/400x300?text=2017+Photo+5" alt="Photo 5">
+        <div class="caption">Description of photo 5 in 2017</div>
+      </div>
+      <div class="photo-card">
+        <img src="https://via.placeholder.com/400x300?text=2017+Photo+6" alt="Photo 6">
+        <div class="caption">Description of photo 6 in 2017</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+  </footer>
+</body>
+</html>
