@@ -4,7 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eddie Zhang</title>
+  <meta name="description" content="Eddie Zhang - A journey of resilience, brilliance, and boundless curiosity." />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fbff;
+      color: #333;
+    }
+    .navbar {
+      background-color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .site-title {
+      color: #ff6600;
+      font-size: 2rem;
+      margin: 0;
+    }
+    .site-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0.25rem 0 1rem;
+    }
+    .nav {
+      margin-top: 0.5rem;
+    }
+    .nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .nav a.active, .nav a:hover {
+      color: #ff6600;
+    }
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(to right, #eef4f9, #f8fbff);
+    }
+    .hero-image img {
+      width: 100vw;
+      max-width: 400px;
+      height: 56vw; /* 16:9比例 */
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: block;
+      margin: 0 auto;
+    }
+    .hero-text {
+      max-width: 500px;
+      margin-left: 2rem;
+      flex: 1;
+    }
+    .hero-text h2 {
+      font-size: 2rem;
+      color: #222;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: #444;
+      margin: 1rem 0;
+    }
+    .cta-button {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .cta-button:hover {
+      background-color: #e55a00;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      max-width: 300px;
+      flex: 1;
+      text-align: center;
+    }
+    .card .highlight {
+      font-weight: bold;
+      color: #ff6600;
+      margin: 0.5rem 0;
+    }
+    .more-button {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 2px solid #ff6600;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #ff6600;
+      transition: background 0.3s, color 0.3s;
+    }
+    .more-button:hover {
+      background: #ff6600;
+      color: white;
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f1f1f1;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+    @media (max-width: 800px) {
+      .hero-section {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+      }
+      .hero-text {
+        margin-left: 0;
+        margin-top: 1.5rem;
+        text-align: center;
+      }
+      .cards {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -22,8 +164,8 @@
 
   <main class="hero-section">
     <div class="hero-image">
-<img src="images/M1.jpeg" alt="Eddie with a cat" class="hero-img" />
-        </div>
+      <img src="images/M1.jpeg" alt="Eddie with a cat" />
+    </div>
     <div class="hero-text">
       <h2>Hello, I’m Eddie Zhang</h2>
       <p>A student, athlete, innovator and global citizen with a passion for excellence.</p>
