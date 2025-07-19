@@ -1,3 +1,20 @@
+.hero-img {
+  width: 100vw;          /* 宽度占满屏幕 */
+  height: 100vw * 0.5625;/* 比如16:9比例，可以自行修改 */
+  max-width: 100%;       /* 电脑上不超过窗口 */
+  max-height: 80vh;      /* 电脑上不超过80%屏高 */
+  display: block;
+  object-fit: cover;     /* 铺满且不变形 */
+}
+@media (min-width: 768px) {
+  .hero-img {
+    width: 100%;         /* 电脑上宽度自适应容器 */
+    height: auto;
+    max-height: 500px;   /* 可根据实际调整最大高度 */
+  }
+}
+
+
 /* styles.css */
 body {
   margin: 0;
