@@ -6,35 +6,38 @@
   <title>Gallery</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .gallery-grid {
+    .gallery-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
       padding: 2rem;
     }
-    .gallery-year {
-      padding: 1rem 2rem;
-      font-size: 1.25rem;
-      font-weight: bold;
-      background: #ff660010;
-      border-left: 4px solid #ff6600;
-      margin-top: 2rem;
-    }
-    .gallery-img {
-      width: 100%;
+    .year-block {
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s;
+      text-decoration: none;
+      color: inherit;
     }
-    .caption {
-      font-size: 0.85rem;
-      color: #555;
-      margin-top: 0.3rem;
+    .year-block:hover {
+      transform: scale(1.03);
+    }
+    .year-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .year-caption {
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
       text-align: center;
+      background-color: #f7f7f7;
     }
-    .img-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .footer {
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -53,62 +56,85 @@
   </header>
 
   <main>
-    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photo Gallery: 2007–2025</h2>
-
-    <!-- Loop through years from 2025 to 2007 -->
-    <!-- Each year will include 3 photos with optional captions -->
-    <!-- Placeholder example -->
-
-    <!-- BEGIN YEAR BLOCK -->
-    <!-- Repeat for each year -->
-    
-    <!-- Template example for each year -->
-    <!-- Replace image URLs and captions with real data later -->
-    <!-- Start year loop -->
-    
-    <!-- generated in code below -->
-    
-    <!-- END year loop -->
-
-    <!-- GENERATED YEAR BLOCKS -->
-    
-    <!-- Loop start -->
-    <!-- Each year has 3 photos with caption -->
-    
-    
-    <!-- Placeholders generated from 2025 to 2007 -->
-    <!-- Example format shown -->
-    
-    
-    <!-- Dynamic Block Below -->
-    
-    <!-- Using JS to show logic, in real file just static HTML -->
-    
-    <!-- START GENERATED BLOCKS -->
-    
-    <!-- This section is auto-generated below -->
-" + Array.from({length: 2025 - 2007 + 1}, (_, i) => {
-      const year = 2025 - i;
-      return `
-    <div class="gallery-year">${year}</div>
-    <div class="gallery-grid">
-      <div class="img-block">
-        <img class="gallery-img" src="https://via.placeholder.com/300x200?text=${year}+Photo+1" alt="${year} Photo 1">
-        <div class="caption">Summer trip highlight</div>
-      </div>
-      <div class="img-block">
-        <img class="gallery-img" src="https://via.placeholder.com/300x200?text=${year}+Photo+2" alt="${year} Photo 2">
-        <div class="caption">Achievement moment</div>
-      </div>
-      <div class="img-block">
-        <img class="gallery-img" src="https://via.placeholder.com/300x200?text=${year}+Photo+3" alt="${year} Photo 3">
-        <div class="caption">Everyday smile</div>
-      </div>
-    </div>`;
-    }).join("\n") + `
-
-    <!-- END GENERATED BLOCKS -->
-
+    <h2 style="text-align:center; padding: 2rem 0 1rem;">Eddie's Photo Journey (2007–2025)</h2>
+    <div class="gallery-container">
+      <a href="gallery/gallery-2025.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2025+Cover" alt="2025" class="year-image" />
+        <div class="year-caption">2025</div>
+      </a>
+      <a href="gallery/gallery-2024.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2024+Cover" alt="2024" class="year-image" />
+        <div class="year-caption">2024</div>
+      </a>
+      <a href="gallery/gallery-2023.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2023+Cover" alt="2023" class="year-image" />
+        <div class="year-caption">2023</div>
+      </a>
+      <a href="gallery/gallery-2022.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2022+Cover" alt="2022" class="year-image" />
+        <div class="year-caption">2022</div>
+      </a>
+      <a href="gallery/gallery-2021.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2021+Cover" alt="2021" class="year-image" />
+        <div class="year-caption">2021</div>
+      </a>
+      <a href="gallery/gallery-2020.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2020+Cover" alt="2020" class="year-image" />
+        <div class="year-caption">2020</div>
+      </a>
+      <a href="gallery/gallery-2019.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2019+Cover" alt="2019" class="year-image" />
+        <div class="year-caption">2019</div>
+      </a>
+      <a href="gallery/gallery-2018.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2018+Cover" alt="2018" class="year-image" />
+        <div class="year-caption">2018</div>
+      </a>
+      <a href="gallery/gallery-2017.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2017+Cover" alt="2017" class="year-image" />
+        <div class="year-caption">2017</div>
+      </a>
+      <a href="gallery/gallery-2016.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2016+Cover" alt="2016" class="year-image" />
+        <div class="year-caption">2016</div>
+      </a>
+      <a href="gallery/gallery-2015.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2015+Cover" alt="2015" class="year-image" />
+        <div class="year-caption">2015</div>
+      </a>
+      <a href="gallery/gallery-2014.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2014+Cover" alt="2014" class="year-image" />
+        <div class="year-caption">2014</div>
+      </a>
+      <a href="gallery/gallery-2013.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2013+Cover" alt="2013" class="year-image" />
+        <div class="year-caption">2013</div>
+      </a>
+      <a href="gallery/gallery-2012.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2012+Cover" alt="2012" class="year-image" />
+        <div class="year-caption">2012</div>
+      </a>
+      <a href="gallery/gallery-2011.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2011+Cover" alt="2011" class="year-image" />
+        <div class="year-caption">2011</div>
+      </a>
+      <a href="gallery/gallery-2010.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2010+Cover" alt="2010" class="year-image" />
+        <div class="year-caption">2010</div>
+      </a>
+      <a href="gallery/gallery-2009.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2009+Cover" alt="2009" class="year-image" />
+        <div class="year-caption">2009</div>
+      </a>
+      <a href="gallery/gallery-2008.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2008+Cover" alt="2008" class="year-image" />
+        <div class="year-caption">2008</div>
+      </a>
+      <a href="gallery/gallery-2007.html" class="year-block">
+        <img src="https://via.placeholder.com/600x300?text=2007+Cover" alt="2007" class="year-image" />
+        <div class="year-caption">2007</div>
+      </a>
+    </div>
   </main>
 
   <footer class="footer">
