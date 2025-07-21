@@ -1,25 +1,17 @@
-main, .hero-section, .section, .photo-grid, .contact-info, .gallery-container {
-  margin-top: 120px;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  padding: 1rem 0;
-}
-
+/* ====== 基础样式 ====== */
 body {
   margin: 0;
-  padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #f8fbff;
   color: #333;
+}
+
+/* ====== 导航栏 ====== */
+.navbar {
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .site-title {
@@ -45,6 +37,7 @@ body {
   box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 
+/* 菜单项样式 */
 .nav a {
   margin: 0 1rem;
   text-decoration: none;
@@ -58,6 +51,7 @@ body {
   display: inline-block;
 }
 
+/* 高亮与悬停 */
 .nav a.active,
 .nav a:hover {
   background: #ff6600;
@@ -65,73 +59,103 @@ body {
   box-shadow: 0 2px 8px rgba(255,102,0,0.09);
 }
 
-.contact-info {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.contact-info h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.contact-item {
-  margin: 1rem 0;
-}
-.contact-label {
-  font-weight: bold;
-  color: #ff6600;
-}
-.contact-link {
-  text-decoration: none;
-  color: #333;
-}
-.contact-link:hover {
-  text-decoration: underline;
+/* ====== 首页主视觉区 ====== */
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(to right, #eef4f9, #f8fbff);
 }
 
+.hero-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+  max-width: 500px;
+  margin-left: 2rem;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #444;
+  margin: 1rem 0;
+}
+
+.cta-button {
+  background-color: #ff6600;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e55a00;
+}
+
+/* ====== 卡片区 ====== */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  max-width: 300px;
+  flex: 1;
+  text-align: center;
+}
+
+.card .highlight {
+  font-weight: bold;
+  color: #ff6600;
+  margin: 0.5rem 0;
+}
+
+.more-button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ff6600;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ff6600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.more-button:hover {
+  background: #ff6600;
+  color: white;
+}
+
+/* ====== 页脚 ====== */
 .footer {
   text-align: center;
   padding: 1rem;
   background-color: #f1f1f1;
   font-size: 0.9rem;
   color: #666;
-  margin-top: 3rem;
 }
 
-.gallery-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-.year-block {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  overflow: hidden;
-  transition: transform 0.3s;
-  text-decoration: none;
-  color: inherit;
-}
-.year-block:hover {
-  transform: scale(1.03);
-}
-.year-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-.year-caption {
-  padding: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  background-color: #f7f7f7;
-}
-
+/* ====== 响应式适配（移动端优化） ====== */
 @media (max-width: 800px) {
   .navbar {
     padding: 0.8rem 0.3rem;
@@ -158,40 +182,33 @@ body {
     text-align: left;
     border-radius: 14px;
   }
-  .contact-info {
-    padding: 1rem 0.6rem;
+  .hero-section {
+    flex-direction: column;
+    padding: 1.2rem;
   }
-  .gallery-container {
+  .hero-image {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .hero-text {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .hero-text h2 {
+    font-size: 1.3rem;
+  }
+  .cards {
+    flex-direction: column;
     padding: 1rem;
     gap: 1rem;
   }
-}
-
-@media (max-width: 600px) {
-  .navbar {
-    padding: 8px 10px;
-  }
-  .site-title, .site-subtitle {
-    font-size: 1rem;
-    margin: 0.2em 0;
-  }
-  .nav a {
-    font-size: 0.95rem;
-    padding: 6px 10px;
-    display: inline-block;
-  }
-  main, .hero-section, .section, .photo-grid, .contact-info, .gallery-container {
-    margin-top: 90px;
-  }
-  .contact-info {
-    padding: 1rem 0.3rem;
-  }
-  .gallery-container {
-    padding: 0.5rem;
-    gap: 0.5rem;
+  .card {
+    max-width: 100%;
+    padding: 1rem;
   }
 }
 
+/* ====== 进一步微调适配超小屏幕 ====== */
 @media (max-width: 480px) {
   .navbar {
     padding: 0.5rem 0.1rem;
@@ -202,15 +219,15 @@ body {
   .site-subtitle {
     font-size: 0.7rem;
   }
+  .hero-section {
+    padding: 0.5rem;
+  }
+  .cards {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
   .footer {
     font-size: 0.8rem;
     padding: 0.5rem;
-  }
-  .contact-info {
-    padding: 1rem 0.1rem;
-  }
-  .gallery-container {
-    padding: 0.2rem;
-    gap: 0.2rem;
   }
 }
