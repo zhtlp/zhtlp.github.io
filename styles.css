@@ -1,4 +1,4 @@
-/* ====== »ù´¡ÑùÊ½ ====== */
+/* ====== åŸºç¡€æ ·å¼ ====== */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +6,7 @@ body {
   color: #333;
 }
 
-/* ====== µ¼º½À¸ ====== */
+/* ====== å¯¼èˆªæ  ====== */
 .navbar {
   background-color: #fff;
   text-align: center;
@@ -37,7 +37,7 @@ body {
   box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 
-/* ²Ëµ¥ÏîÑùÊ½ */
+/* èœå•é¡¹æ ·å¼ */
 .nav a {
   margin: 0 1rem;
   text-decoration: none;
@@ -51,7 +51,7 @@ body {
   display: inline-block;
 }
 
-/* ¸ßÁÁÓëĞüÍ£ */
+/* é«˜äº®ä¸æ‚¬åœ */
 .nav a.active,
 .nav a:hover {
   background: #ff6600;
@@ -59,7 +59,7 @@ body {
   box-shadow: 0 2px 8px rgba(255,102,0,0.09);
 }
 
-/* ====== Ê×Ò³Ö÷ÊÓ¾õÇø ====== */
+/* ====== é¦–é¡µä¸»è§†è§‰åŒº ====== */
 .hero-section {
   display: flex;
   flex-wrap: wrap;
@@ -105,7 +105,7 @@ body {
   background-color: #e55a00;
 }
 
-/* ====== ¿¨Æ¬Çø ====== */
+/* ====== å¡ç‰‡åŒº ====== */
 .cards {
   display: flex;
   justify-content: center;
@@ -146,7 +146,7 @@ body {
   color: white;
 }
 
-/* ====== Ò³½Å ====== */
+/* ====== é¡µè„š ====== */
 .footer {
   text-align: center;
   padding: 1rem;
@@ -155,7 +155,7 @@ body {
   color: #666;
 }
 
-/* ====== ÏìÓ¦Ê½ÊÊÅä£¨ÒÆ¶¯¶ËÓÅ»¯£© ====== */
+/* ====== å“åº”å¼é€‚é…ï¼ˆç§»åŠ¨ç«¯ä¼˜åŒ–ï¼‰ ====== */
 @media (max-width: 800px) {
   .navbar {
     padding: 0.8rem 0.3rem;
@@ -208,7 +208,7 @@ body {
   }
 }
 
-/* ====== ½øÒ»²½Î¢µ÷ÊÊÅä³¬Ğ¡ÆÁÄ» ====== */
+/* ====== è¿›ä¸€æ­¥å¾®è°ƒé€‚é…è¶…å°å±å¹• ====== */
 @media (max-width: 480px) {
   .navbar {
     padding: 0.5rem 0.1rem;
@@ -229,5 +229,28 @@ body {
   .footer {
     font-size: 0.8rem;
     padding: 0.5rem;
+  }
+}
+/* ====== åŸæœ‰æ ·å¼... ====== */
+/* ...ä½ çš„åŸæœ‰å†…å®¹çœç•¥... */
+
+/* ====== å›ºå®šå¯¼èˆªæ åœ¨é¡¶éƒ¨ ====== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* è®©æ­£æ–‡å†…å®¹ä¸è¢«å¯¼èˆªæ é®æŒ¡ */
+body {
+  padding-top: 120px; /* æ ¹æ®å®é™…å¯¼èˆªæ é«˜åº¦å¾®è°ƒ */
+}
+@media (max-width: 800px) {
+  body {
+    padding-top: 90px;
   }
 }
