@@ -1,85 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery 2007</title>
-  <link rel="stylesheet" href="/styles.css">
+  <title>2007年图库浏览</title>
   <style>
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
     }
-    .photo-card {
+    h1 {
+      text-align: center;
+      padding: 1em 0 0.5em 0;
+      color: #333;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding: 32px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery-item {
       background: #fff;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       overflow: hidden;
-      text-align: center;
+      width: 220px;
+      transition: box-shadow 0.2s;
     }
-    .photo-card img {
+    .gallery-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+    }
+    .gallery-item img {
       width: 100%;
-      height: 180px;
+      display: block;
       object-fit: cover;
+      height: 180px;
+      background: #eee;
     }
     .caption {
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      color: #333;
+      padding: 8px 12px;
+      font-size: 0.95em;
+      color: #555;
+      text-align: center;
+      word-break: break-all;
+    }
+    @media (max-width: 600px) {
+      .gallery {
+        padding: 8px;
+      }
+      .gallery-item {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="navbar">
-    <h1 class="site-title">Eddie Zhang</h1>
-    <nav class="nav">
-       <a href="../index.html">Home</a>
-      <a href="../about.html">About</a>
-      <a href="../academics.html">Academics</a>
-      <a href="../sports.html">Sports</a>
-      <a href="../gallery.html" class="active">Gallery</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photos from 2007</h2>
-    <div class="photo-grid">
-      
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2007+Photo+1" alt="Photo 1">
-        <div class="caption">Description of photo 1 in 2007</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2007+Photo+2" alt="Photo 2">
-        <div class="caption">Description of photo 2 in 2007</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2007+Photo+3" alt="Photo 3">
-        <div class="caption">Description of photo 3 in 2007</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2007+Photo+4" alt="Photo 4">
-        <div class="caption">Description of photo 4 in 2007</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2007+Photo+5" alt="Photo 5">
-        <div class="caption">Description of photo 5 in 2007</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2007+Photo+6" alt="Photo 6">
-        <div class="caption">Description of photo 6 in 2007</div>
-      </div>
+  <h1>2007年图库浏览</h1>
+  <div class="gallery">
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0675-3.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0675-3.JPG" alt="_MG_0675-3.JPG">
+      </a>
+      <div class="caption">_MG_0675-3.JPG</div>
     </div>
-  </main>
-<footer class="footer">
-  <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
-</footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-  
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0676.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0676.JPG" alt="_MG_0676.JPG">
+      </a>
+      <div class="caption">_MG_0676.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0778.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0778.JPG" alt="_MG_0778.JPG">
+      </a>
+      <div class="caption">_MG_0778.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0814.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0814.JPG" alt="_MG_0814.JPG">
+      </a>
+      <div class="caption">_MG_0814.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0830.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0830.JPG" alt="_MG_0830.JPG">
+      </a>
+      <div class="caption">_MG_0830.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0851.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0851.JPG" alt="_MG_0851.JPG">
+      </a>
+      <div class="caption">_MG_0851.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0861.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0861.JPG" alt="_MG_0861.JPG">
+      </a>
+      <div class="caption">_MG_0861.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_0876.JPG" target="_blank">
+        <img src="gallery/2007/_MG_0876.JPG" alt="_MG_0876.JPG">
+      </a>
+      <div class="caption">_MG_0876.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_1019.JPG" target="_blank">
+        <img src="gallery/2007/_MG_1019.JPG" alt="_MG_1019.JPG">
+      </a>
+      <div class="caption">_MG_1019.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_1024.JPG" target="_blank">
+        <img src="gallery/2007/_MG_1024.JPG" alt="_MG_1024.JPG">
+      </a>
+      <div class="caption">_MG_1024.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/_MG_1313.JPG" target="_blank">
+        <img src="gallery/2007/_MG_1313.JPG" alt="_MG_1313.JPG">
+      </a>
+      <div class="caption">_MG_1313.JPG</div>
+    </div>
+    <div class="gallery-item">
+      <a href="gallery/2007/2007.jpg" target="_blank">
+        <img src="gallery/2007/2007.jpg" alt="2007.jpg">
+      </a>
+      <div class="caption">2007.jpg</div>
+    </div>
+  </div>
 </body>
 </html>
