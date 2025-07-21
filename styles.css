@@ -27,7 +27,7 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   text-align: center;
   padding: 1rem 0 0.5rem;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, padding 0.2s;
 }
 
 .site-title {
@@ -39,13 +39,14 @@ body {
 }
 
 .site-subtitle {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #666;
-  margin: 0.25rem 0 1rem;
+  margin: 0.2rem 0 1rem;
 }
 
+/* ====== 导航栏菜单 ====== */
 .nav {
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   display: inline-flex;
   background: #f8fbff;
   border-radius: 24px;
@@ -55,8 +56,6 @@ body {
   justify-content: center;
   gap: 0;
 }
-
-/* 菜单项样式 */
 .nav a {
   margin: 0 1rem;
   text-decoration: none;
@@ -68,10 +67,10 @@ body {
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
   letter-spacing: 0.02em;
   display: inline-block;
+  outline: none;
 }
-
-/* 高亮与悬停 */
 .nav a.active,
+.nav a:focus,
 .nav a:hover {
   background: #ff6600;
   color: #fff;
@@ -84,44 +83,45 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  gap: 2rem;
+  padding: 2rem 0;
   background: linear-gradient(to right, #eef4f9, #f8fbff);
 }
-
 .hero-image img {
   max-width: 100%;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
 }
-
 .hero-text {
   max-width: 500px;
-  margin-left: 2rem;
 }
-
-.hero-text h2 {
-  font-size: 2rem;
+.hero-text h1 {
+  font-size: 2.1rem;
+  margin: 0 0 1rem;
   color: #222;
 }
-
 .hero-text p {
-  font-size: 1rem;
+  font-size: 1.08rem;
   color: #444;
   margin: 1rem 0;
 }
-
 .cta-button {
-  background-color: #ff6600;
-  color: white;
-  padding: 0.6rem 1.2rem;
+  background: #ff6600;
+  color: #fff;
+  padding: 0.65rem 1.5rem;
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 24px;
   font-weight: bold;
-  transition: background 0.3s;
+  font-size: 1.07rem;
+  letter-spacing: 0.02em;
+  transition: background 0.22s;
+  box-shadow: 0 2px 8px rgba(255,102,0,0.09);
+  border: none;
+  outline: none;
+  display: inline-block;
 }
-
-.cta-button:hover {
-  background-color: #e55a00;
+.cta-button:hover, .cta-button:focus {
+  background: #e55a00;
 }
 
 /* ====== 卡片区 ====== */
@@ -130,25 +130,24 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 2rem 0;
 }
-
 .card {
-  background: white;
+  background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  max-width: 300px;
-  flex: 1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  padding: 1.5rem 1.2rem;
+  max-width: 320px;
+  min-width: 220px;
+  flex: 1 0 220px;
   text-align: center;
+  margin: 0.5rem 0;
 }
-
 .card .highlight {
   font-weight: bold;
   color: #ff6600;
   margin: 0.5rem 0;
 }
-
 .more-button {
   margin-top: 1rem;
   display: inline-block;
@@ -157,43 +156,86 @@ body {
   border-radius: 20px;
   text-decoration: none;
   color: #ff6600;
-  transition: background 0.3s, color 0.3s;
+  font-weight: 600;
+  background: transparent;
+  transition: background 0.25s, color 0.25s;
 }
-
-.more-button:hover {
+.more-button:hover, .more-button:focus {
   background: #ff6600;
-  color: white;
+  color: #fff;
 }
 
-/* ====== 页脚 ====== */
+/* ====== Gallery ====== */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+.year-block {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.21s;
+  text-decoration: none;
+  color: inherit;
+}
+.year-block:hover, .year-block:focus {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+}
+.year-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.year-caption {
+  padding: 1rem;
+  font-size: 1.18rem;
+  font-weight: bold;
+  text-align: center;
+  background: #f7f7f7;
+  letter-spacing: 1px;
+}
+
+/* ====== Contact Info ====== */
+.contact-info {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.contact-info h2 { text-align: center; margin-bottom: 1.5rem; }
+.contact-item { margin: 1rem 0; }
+.contact-label { font-weight: bold; color: #ff6600; }
+.contact-link { text-decoration: none; color: #333; }
+.contact-link:hover, .contact-link:focus { text-decoration: underline; color: #ff6600; }
+
+/* ====== Footer ====== */
 .footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #f1f1f1;
-  font-size: 0.9rem;
+  padding: 1rem 0;
+  background: #f1f1f1;
+  font-size: 0.96rem;
   color: #666;
+  margin-top: 2.5rem;
 }
 
-/* ====== 响应式适配（移动端优化） ====== */
+/* ====== 響應式適配 ====== */
 @media (max-width: 800px) {
-
-  /* 移動端：不固定導航欄 */
   .navbar {
     position: static;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     padding: 0.8rem 0.3rem;
   }
   body {
     padding-top: 0;
   }
-  .site-title {
-    font-size: 1.4rem;
-  }
-  .site-subtitle {
-    font-size: 0.8rem;
-  }
-
-  /* 多行橫向自動摺疊導航欄 */
+  .site-title { font-size: 1.3rem; }
+  .site-subtitle { font-size: 0.85rem; }
   .nav {
     display: flex;
     flex-direction: row;
@@ -217,58 +259,42 @@ body {
     box-sizing: border-box;
     border-radius: 14px;
   }
-
-  .hero-section {
-    flex-direction: column;
-    padding: 1.2rem;
-  }
-  .hero-image {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .hero-text {
-    margin-left: 0;
-    max-width: 100%;
-  }
-  .hero-text h2 {
-    font-size: 1.3rem;
-  }
-  .cards {
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  .card {
-    max-width: 100%;
-    padding: 1rem;
-  }
+  .hero-section { flex-direction: column; padding: 1.2rem 0; gap: 1.2rem; }
+  .hero-image { width: 100%; margin-bottom: 1rem; }
+  .hero-text { margin-left: 0; max-width: 100%; }
+  .hero-text h2 { font-size: 1.3rem; }
+  .cards { flex-direction: column; padding: 1rem 0; gap: 1rem; }
+  .card { max-width: 100%; padding: 1rem; }
 }
-
-/* ====== 进一步微调适配超小屏幕 ====== */
 @media (max-width: 480px) {
-  .navbar {
-    padding: 0.5rem 0.1rem;
-  }
-  .site-title {
-    font-size: 1.1rem;
-  }
-  .site-subtitle {
-    font-size: 0.7rem;
-  }
+  .navbar { padding: 0.5rem 0.1rem; }
+  .site-title { font-size: 1.1rem; }
+  .site-subtitle { font-size: 0.7rem; }
   .nav a {
     flex: 1 0 45%;
     font-size: 0.98rem;
     min-width: 90px;
   }
-  .hero-section {
-    padding: 0.5rem;
-  }
-  .cards {
-    padding: 0.5rem;
-    gap: 0.5rem;
-  }
-  .footer {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-  }
+  .hero-section { padding: 0.5rem; }
+  .cards { padding: 0.5rem; gap: 0.5rem; }
+  .footer { font-size: 0.8rem; padding: 0.5rem; }
+  .gallery-container { gap: 0.6rem; padding: 1rem 0; }
+  main, .section { padding: 0.6rem 0.1rem; }
+}
+
+/* ====== 主區塊標題 ====== */
+.section > h2, main > h2 {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1.2rem;
+  color: #ff6600;
+  letter-spacing: 1px;
+}
+
+/* ====== 分隔線 ====== */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 2rem 0;
 }
