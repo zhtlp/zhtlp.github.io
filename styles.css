@@ -1,3 +1,30 @@
+/* 桌面端：固定導航欄 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+  transition: box-shadow 0.2s;
+}
+body {
+  padding-top: 110px; /* 桌面端預留導航欄高度 */
+}
+
+/* 移動端：不固定導航欄 */
+@media (max-width: 800px) {
+  .navbar {
+    position: static; /* 或 relative */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  body {
+    padding-top: 0;
+  }
+}
 /* ====== 基础样式 ====== */
 body {
   margin: 0;
