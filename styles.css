@@ -1,4 +1,22 @@
-/* 桌面端：固定導航欄 */
+/* ====== 基础样式 ====== */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fbff;
+  color: #333;
+  min-height: 100vh;
+  transition: background 0.2s;
+  padding-top: 120px; /* 桌面端預留導航欄高度 */
+}
+
+/* ====== 固定导航栏在顶部（桌面端） ====== */
 .navbar {
   position: fixed;
   top: 0;
@@ -10,35 +28,6 @@
   text-align: center;
   padding: 1rem 0 0.5rem;
   transition: box-shadow 0.2s;
-}
-body {
-  padding-top: 110px; /* 桌面端預留導航欄高度 */
-}
-
-/* 移動端：不固定導航欄 */
-@media (max-width: 800px) {
-  .navbar {
-    position: static; /* 或 relative */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  }
-  body {
-    padding-top: 0;
-  }
-}
-/* ====== 基础样式 ====== */
-body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f8fbff;
-  color: #333;
-}
-
-/* ====== 导航栏 ====== */
-.navbar {
-  background-color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .site-title {
@@ -62,6 +51,9 @@ body {
   border-radius: 24px;
   padding: 0.3rem 1.2rem;
   box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0;
 }
 
 /* 菜单项样式 */
@@ -184,8 +176,15 @@ body {
 
 /* ====== 响应式适配（移动端优化） ====== */
 @media (max-width: 800px) {
+
+  /* 移動端：不固定導航欄 */
   .navbar {
+    position: static;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     padding: 0.8rem 0.3rem;
+  }
+  body {
+    padding-top: 0;
   }
   .site-title {
     font-size: 1.4rem;
@@ -193,22 +192,32 @@ body {
   .site-subtitle {
     font-size: 0.8rem;
   }
+
+  /* 多行橫向自動摺疊導航欄 */
   .nav {
-    flex-direction: column;
-    padding: 0.3rem 0.6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.2rem 0.3rem;
     border-radius: 16px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    width: 100%;
-    align-items: stretch;
+    gap: 0.3rem 0.6rem;
   }
   .nav a {
-    margin: 4px 0;
-    padding: 0.38rem 0.2rem;
+    flex: 1 0 38%;
+    margin: 0.2rem 0.1rem;
+    padding: 0.38rem 0;
     font-size: 1rem;
-    width: 100%;
-    text-align: left;
+    text-align: center;
+    min-width: 110px;
+    max-width: 100%;
+    box-sizing: border-box;
     border-radius: 14px;
   }
+
   .hero-section {
     flex-direction: column;
     padding: 1.2rem;
@@ -246,6 +255,11 @@ body {
   .site-subtitle {
     font-size: 0.7rem;
   }
+  .nav a {
+    flex: 1 0 45%;
+    font-size: 0.98rem;
+    min-width: 90px;
+  }
   .hero-section {
     padding: 0.5rem;
   }
@@ -256,28 +270,5 @@ body {
   .footer {
     font-size: 0.8rem;
     padding: 0.5rem;
-  }
-}
-/* ====== 原有样式... ====== */
-/* ...你的原有内容省略... */
-
-/* ====== 固定导航栏在顶部 ====== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-/* 让正文内容不被导航栏遮挡 */
-body {
-  padding-top: 120px; /* 根据实际导航栏高度微调 */
-}
-@media (max-width: 800px) {
-  body {
-    padding-top: 90px;
   }
 }
