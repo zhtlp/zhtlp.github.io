@@ -1,301 +1,264 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery 2007</title>
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: #f8f8f8;
-      margin: 0;
-      padding: 0;
+    .gallery-table {
+      margin: 40px auto 60px auto;
+      border-collapse: separate;
+      border-spacing: 22px 18px;
     }
-    nav {
-      background: #222;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav ul li {
-      margin: 0;
-    }
-    nav ul li a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      padding: 16px 20px;
-      font-size: 1.05em;
-      transition: background 0.18s, color 0.18s;
-    }
-    nav ul li a:hover,
-    nav ul li.active a {
-      background: #444;
-      color: #ffd700;
-    }
-    h1 {
-      text-align: center;
-      padding: 1em 0 0.5em 0;
-      color: #333;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      padding: 32px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .gallery-item {
+    .gallery-table td {
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       overflow: hidden;
-      width: 220px;
-      transition: box-shadow 0.2s;
+      width: 175px;
+      vertical-align: top;
+      text-align: center;
+      padding: 0;
     }
-    .gallery-item:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.16);
-    }
-    .gallery-item img {
-      width: 100%;
-      display: block;
+    .gallery-table img {
+      width: 175px;
+      height: 140px;
       object-fit: cover;
-      height: 180px;
+      display: block;
       background: #eee;
+      margin-bottom: 0;
     }
     .caption {
-      padding: 8px 12px;
+      padding: 5px 0 8px 0;
       font-size: 0.95em;
       color: #555;
-      text-align: center;
+      background: #fff;
       word-break: break-all;
     }
-    @media (max-width: 600px) {
-      .gallery {
-        padding: 8px;
-      }
-      .gallery-item {
-        width: 100%;
-      }
-      nav ul li a {
-        padding: 12px 10px;
-        font-size: 1em;
-      }
+    @media (max-width: 900px) {
+      .gallery-table td, .gallery-table img { width: 100px; height: 80px; }
+      .gallery-table { border-spacing: 8px 8px; }
     }
   </style>
 </head>
 <body>
-  <!-- 导航栏开始 -->
-  <nav>
-    <ul>
-      <li><a href="index.html">首页</a></li>
-      <li><a href="about.html">关于</a></li>
-      <li><a href="gallery.html">图库</a></li>
-      <li class="active"><a href="gallery-2007.html">2007年相册</a></li>
-      <li><a href="gallery-2008.html">2008年相册</a></li>
-      <li><a href="gallery-2009.html">2009年相册</a></li>
-      <li><a href="contact.html">联系</a></li>
-    </ul>
-  </nav>
-  <!-- 导航栏结束 -->
+  <header class="navbar">
+    <h1 class="site-title">Eddie Zhang</h1>
+    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="sports.html">Sports</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <h1>Gallery 2007</h1>
-  <div class="gallery">
-    <!-- 以下为自动批量列出 gallery/2007/ 目录下的图片（部分文件，完整请查看 GitHub UI） -->
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-1.jpg" target="_blank">
-        <img src="gallery/2007/2007-1.jpg" alt="2007-1.jpg">
-      </a>
-      <div class="caption">2007-1.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-10.jpg" target="_blank">
-        <img src="gallery/2007/2007-10.jpg" alt="2007-10.jpg">
-      </a>
-      <div class="caption">2007-10.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-11.jpg" target="_blank">
-        <img src="gallery/2007/2007-11.jpg" alt="2007-11.jpg">
-      </a>
-      <div class="caption">2007-11.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-12.jpg" target="_blank">
-        <img src="gallery/2007/2007-12.jpg" alt="2007-12.jpg">
-      </a>
-      <div class="caption">2007-12.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-13.jpg" target="_blank">
-        <img src="gallery/2007/2007-13.jpg" alt="2007-13.jpg">
-      </a>
-      <div class="caption">2007-13.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-14.jpg" target="_blank">
-        <img src="gallery/2007/2007-14.jpg" alt="2007-14.jpg">
-      </a>
-      <div class="caption">2007-14.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-15.jpg" target="_blank">
-        <img src="gallery/2007/2007-15.jpg" alt="2007-15.jpg">
-      </a>
-      <div class="caption">2007-15.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-16.jpg" target="_blank">
-        <img src="gallery/2007/2007-16.jpg" alt="2007-16.jpg">
-      </a>
-      <div class="caption">2007-16.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-17.jpg" target="_blank">
-        <img src="gallery/2007/2007-17.jpg" alt="2007-17.jpg">
-      </a>
-      <div class="caption">2007-17.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-18.jpg" target="_blank">
-        <img src="gallery/2007/2007-18.jpg" alt="2007-18.jpg">
-      </a>
-      <div class="caption">2007-18.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-19.jpg" target="_blank">
-        <img src="gallery/2007/2007-19.jpg" alt="2007-19.jpg">
-      </a>
-      <div class="caption">2007-19.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-2.jpg" target="_blank">
-        <img src="gallery/2007/2007-2.jpg" alt="2007-2.jpg">
-      </a>
-      <div class="caption">2007-2.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-20.jpg" target="_blank">
-        <img src="gallery/2007/2007-20.jpg" alt="2007-20.jpg">
-      </a>
-      <div class="caption">2007-20.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-21.jpg" target="_blank">
-        <img src="gallery/2007/2007-21.jpg" alt="2007-21.jpg">
-      </a>
-      <div class="caption">2007-21.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-22.jpg" target="_blank">
-        <img src="gallery/2007/2007-22.jpg" alt="2007-22.jpg">
-      </a>
-      <div class="caption">2007-22.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-23.jpg" target="_blank">
-        <img src="gallery/2007/2007-23.jpg" alt="2007-23.jpg">
-      </a>
-      <div class="caption">2007-23.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-24.jpg" target="_blank">
-        <img src="gallery/2007/2007-24.jpg" alt="2007-24.jpg">
-      </a>
-      <div class="caption">2007-24.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-25.jpg" target="_blank">
-        <img src="gallery/2007/2007-25.jpg" alt="2007-25.jpg">
-      </a>
-      <div class="caption">2007-25.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-26.jpg" target="_blank">
-        <img src="gallery/2007/2007-26.jpg" alt="2007-26.jpg">
-      </a>
-      <div class="caption">2007-26.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-27.jpg" target="_blank">
-        <img src="gallery/2007/2007-27.jpg" alt="2007-27.jpg">
-      </a>
-      <div class="caption">2007-27.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-28.jpg" target="_blank">
-        <img src="gallery/2007/2007-28.jpg" alt="2007-28.jpg">
-      </a>
-      <div class="caption">2007-28.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-29.jpg" target="_blank">
-        <img src="gallery/2007/2007-29.jpg" alt="2007-29.jpg">
-      </a>
-      <div class="caption">2007-29.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-3.jpg" target="_blank">
-        <img src="gallery/2007/2007-3.jpg" alt="2007-3.jpg">
-      </a>
-      <div class="caption">2007-3.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-30.jpg" target="_blank">
-        <img src="gallery/2007/2007-30.jpg" alt="2007-30.jpg">
-      </a>
-      <div class="caption">2007-30.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-4.jpg" target="_blank">
-        <img src="gallery/2007/2007-4.jpg" alt="2007-4.jpg">
-      </a>
-      <div class="caption">2007-4.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-5.jpg" target="_blank">
-        <img src="gallery/2007/2007-5.jpg" alt="2007-5.jpg">
-      </a>
-      <div class="caption">2007-5.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-6.jpg" target="_blank">
-        <img src="gallery/2007/2007-6.jpg" alt="2007-6.jpg">
-      </a>
-      <div class="caption">2007-6.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-7.jpg" target="_blank">
-        <img src="gallery/2007/2007-7.jpg" alt="2007-7.jpg">
-      </a>
-      <div class="caption">2007-7.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-8.jpg" target="_blank">
-        <img src="gallery/2007/2007-8.jpg" alt="2007-8.jpg">
-      </a>
-      <div class="caption">2007-8.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007-9.jpg" target="_blank">
-        <img src="gallery/2007/2007-9.jpg" alt="2007-9.jpg">
-      </a>
-      <div class="caption">2007-9.jpg</div>
-    </div>
-    <div class="gallery-item">
-      <a href="gallery/2007/2007.jpg" target="_blank">
-        <img src="gallery/2007/2007.jpg" alt="2007.jpg">
-      </a>
-      <div class="caption">2007.jpg</div>
-    </div>
-    <!-- 由于 GitHub API 限制，最多显示30个文件。如需查看更多图片文件，请访问 <a href="https://github.com/zhtlp/zhtlp.github.io/tree/main/gallery/2007" target="_blank">gallery/2007/ 文件夹</a> 查看全部内容。 -->
-  </div>
+  <main>
+    <h1 style="text-align:center; margin-top:2em;">Gallery 2007</h1>
+    <table class="gallery-table">
+      <tr>
+        <td>
+          <a href="2007/2007-1.jpg" target="_blank">
+            <img src="2007/2007-1.jpg" alt="2007-1.jpg">
+          </a>
+          <div class="caption">2007-1.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-2.jpg" target="_blank">
+            <img src="2007/2007-2.jpg" alt="2007-2.jpg">
+          </a>
+          <div class="caption">2007-2.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-3.jpg" target="_blank">
+            <img src="2007/2007-3.jpg" alt="2007-3.jpg">
+          </a>
+          <div class="caption">2007-3.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-4.jpg" target="_blank">
+            <img src="2007/2007-4.jpg" alt="2007-4.jpg">
+          </a>
+          <div class="caption">2007-4.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-5.jpg" target="_blank">
+            <img src="2007/2007-5.jpg" alt="2007-5.jpg">
+          </a>
+          <div class="caption">2007-5.jpg</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2007/2007-6.jpg" target="_blank">
+            <img src="2007/2007-6.jpg" alt="2007-6.jpg">
+          </a>
+          <div class="caption">2007-6.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-7.jpg" target="_blank">
+            <img src="2007/2007-7.jpg" alt="2007-7.jpg">
+          </a>
+          <div class="caption">2007-7.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-8.jpg" target="_blank">
+            <img src="2007/2007-8.jpg" alt="2007-8.jpg">
+          </a>
+          <div class="caption">2007-8.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-9.jpg" target="_blank">
+            <img src="2007/2007-9.jpg" alt="2007-9.jpg">
+          </a>
+          <div class="caption">2007-9.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-10.jpg" target="_blank">
+            <img src="2007/2007-10.jpg" alt="2007-10.jpg">
+          </a>
+          <div class="caption">2007-10.jpg</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2007/2007-11.jpg" target="_blank">
+            <img src="2007/2007-11.jpg" alt="2007-11.jpg">
+          </a>
+          <div class="caption">2007-11.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-12.jpg" target="_blank">
+            <img src="2007/2007-12.jpg" alt="2007-12.jpg">
+          </a>
+          <div class="caption">2007-12.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-13.jpg" target="_blank">
+            <img src="2007/2007-13.jpg" alt="2007-13.jpg">
+          </a>
+          <div class="caption">2007-13.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-14.jpg" target="_blank">
+            <img src="2007/2007-14.jpg" alt="2007-14.jpg">
+          </a>
+          <div class="caption">2007-14.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-15.jpg" target="_blank">
+            <img src="2007/2007-15.jpg" alt="2007-15.jpg">
+          </a>
+          <div class="caption">2007-15.jpg</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2007/2007-16.jpg" target="_blank">
+            <img src="2007/2007-16.jpg" alt="2007-16.jpg">
+          </a>
+          <div class="caption">2007-16.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-17.jpg" target="_blank">
+            <img src="2007/2007-17.jpg" alt="2007-17.jpg">
+          </a>
+          <div class="caption">2007-17.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-18.jpg" target="_blank">
+            <img src="2007/2007-18.jpg" alt="2007-18.jpg">
+          </a>
+          <div class="caption">2007-18.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-19.jpg" target="_blank">
+            <img src="2007/2007-19.jpg" alt="2007-19.jpg">
+          </a>
+          <div class="caption">2007-19.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-20.jpg" target="_blank">
+            <img src="2007/2007-20.jpg" alt="2007-20.jpg">
+          </a>
+          <div class="caption">2007-20.jpg</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2007/2007-21.jpg" target="_blank">
+            <img src="2007/2007-21.jpg" alt="2007-21.jpg">
+          </a>
+          <div class="caption">2007-21.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-22.jpg" target="_blank">
+            <img src="2007/2007-22.jpg" alt="2007-22.jpg">
+          </a>
+          <div class="caption">2007-22.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-23.jpg" target="_blank">
+            <img src="2007/2007-23.jpg" alt="2007-23.jpg">
+          </a>
+          <div class="caption">2007-23.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-24.jpg" target="_blank">
+            <img src="2007/2007-24.jpg" alt="2007-24.jpg">
+          </a>
+          <div class="caption">2007-24.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-25.jpg" target="_blank">
+            <img src="2007/2007-25.jpg" alt="2007-25.jpg">
+          </a>
+          <div class="caption">2007-25.jpg</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2007/2007-26.jpg" target="_blank">
+            <img src="2007/2007-26.jpg" alt="2007-26.jpg">
+          </a>
+          <div class="caption">2007-26.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-27.jpg" target="_blank">
+            <img src="2007/2007-27.jpg" alt="2007-27.jpg">
+          </a>
+          <div class="caption">2007-27.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-28.jpg" target="_blank">
+            <img src="2007/2007-28.jpg" alt="2007-28.jpg">
+          </a>
+          <div class="caption">2007-28.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-29.jpg" target="_blank">
+            <img src="2007/2007-29.jpg" alt="2007-29.jpg">
+          </a>
+          <div class="caption">2007-29.jpg</div>
+        </td>
+        <td>
+          <a href="2007/2007-30.jpg" target="_blank">
+            <img src="2007/2007-30.jpg" alt="2007-30.jpg">
+          </a>
+          <div class="caption">2007-30.jpg</div>
+        </td>
+      </tr>
+    </table>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
