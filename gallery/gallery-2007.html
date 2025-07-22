@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="UTF-8">
   <title>Gallery 2007</title>
@@ -9,6 +9,34 @@
       background: #f8f8f8;
       margin: 0;
       padding: 0;
+    }
+    nav {
+      background: #222;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0;
+    }
+    nav ul li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 20px;
+      font-size: 1.05em;
+      transition: background 0.18s, color 0.18s;
+    }
+    nav ul li a:hover,
+    nav ul li.active a {
+      background: #444;
+      color: #ffd700;
     }
     h1 {
       text-align: center;
@@ -56,17 +84,37 @@
       .gallery-item {
         width: 100%;
       }
+      nav ul li a {
+        padding: 12px 10px;
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- 导航栏开始 -->
+  <nav>
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html">关于</a></li>
+      <li><a href="gallery.html">图库</a></li>
+      <li class="active"><a href="gallery-2007.html">2007年相册</a></li>
+      <li><a href="gallery-2008.html">2008年相册</a></li>
+      <li><a href="gallery-2009.html">2009年相册</a></li>
+      <li><a href="contact.html">联系</a></li>
+    </ul>
+  </nav>
+  <!-- 导航栏结束 -->
+
   <h1>Gallery 2007</h1>
   <div class="gallery">
+    <!-- 自动列出所有2007文件夹下的图片（jpg/png/gif） -->
+    <!-- 以下代码可用脚本批量生成或手动维护图片清单 -->
     <div class="gallery-item">
       <a href="2007/200701.jpg" target="_blank">
         <img src="2007/200701.jpg" alt="200701.jpg">
       </a>
-      <div class="caption">200701</div>
+      <div class="caption">200701.jpg</div>
     </div>
     <div class="gallery-item">
       <a href="2007/200702.jpg" target="_blank">
@@ -134,6 +182,7 @@
       </a>
       <div class="caption">2007.jpg</div>
     </div>
+    <!-- 如需补充其他图片，继续添加 <div class="gallery-item"> ... </div> 即可 -->
   </div>
 </body>
 </html>
