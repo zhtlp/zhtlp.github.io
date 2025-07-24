@@ -18,8 +18,8 @@ jobs:
           for f in gallery/**/*.zip; do
             folder="${f%.*}_unzipped"
             mkdir -p "$folder"
-            unzip -o "$f" -d "$folder"    # -o 表示自动覆盖重名文件
-            rm "$f"                      # 删除已解压的 zip 文件
+            unzip -o "$f" -d "$folder"
+            rm "$f"
           done
 
       - name: Set up git user
