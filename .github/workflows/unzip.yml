@@ -1,0 +1,33 @@
+name: Unzip all gallery/2008 zip files and commit
+
+on:
+  push:
+    paths:
+      - 'gallery/2008/*.zip'
+
+jobs:
+  unzip_and_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Unzip all zip files in gallery/2008
+        run: |
+          for f in gallery/2008/*.zip; do
+            folder="${f%.*}_unzipped"
+            mkdir -p "$folder"
+            unzip -o "$f" -d "$folder"
+          done
+
+      - name: Set up git user
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit unzipped files
+        run: |
+          git add gallery/2008/*_unzipped
+          git commit -m "Auto-unzip all zip files in gallery/2008"
+          git push
+        continue-on-error: true # 防止没变化时报错
