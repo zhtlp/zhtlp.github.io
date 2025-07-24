@@ -12,13 +12,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Unzip all zip files in gallery directories
+      - name: Unzip and remove zip files in gallery directories
         run: |
           shopt -s globstar nullglob
           for f in gallery/**/*.zip; do
             folder="${f%.*}_unzipped"
             mkdir -p "$folder"
-            unzip -o "$f" -d "$folder"
+            unzip -o "$f" -d "$folder"    # -o 表示自动覆盖重名文件
+            rm "$f"                      # 删除已解压的 zip 文件
           done
 
       - name: Set up git user
@@ -26,9 +27,10 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Commit unzipped files
+      - name: Commit unzipped files and removed zips
         run: |
           git add gallery/**/*_unzipped
-          git commit -m "Auto-unzip all zip files in gallery"
+          git add -u gallery/**/*.zip
+          git commit -m "Auto-unzip all zip files in gallery and remove zip files"
           git push
         continue-on-error: true
