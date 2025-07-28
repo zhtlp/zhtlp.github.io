@@ -5,67 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .contact-info {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-    .contact-info h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .contact-item {
-      margin: 1rem 0;
-    }
-    .contact-label {
-      font-weight: bold;
-      color: #ff6600;
-    }
-    .contact-link {
-      text-decoration: none;
-      color: #333;
-    }
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
-  <header class="navbar">
-    <h1 class="site-title">Eddie Zhang</h1>
-    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="academics.html">Academics</a>
-      <a href="sports.html">Sports</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="contact-info">
-      <h2>Get in Touch</h2>
-      <div class="contact-item">
-        <span class="contact-label">Email:</span>
-        <a class="contact-link" href="mailto:eddiezhang@example.com">eddiezhang@example.com</a>
+  <div class="container">
+    <header class="navbar">
+      <h1 class="site-title">Eddie Zhang</h1>
+      <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="sports.html">Sports</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+    <main class="main-content">
+      <h2>Contact Me</h2>
+      <section class="contact-info">
+        <div class="contact-item">
+          <span class="contact-label">Email:</span>
+          <a href="mailto:eddiezhang@example.com" class="contact-link">eddiezhang@example.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone:</span>
+          <span class="contact-link">+86 123 4567 8901</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">GitHub:</span>
+          <a href="https://github.com/zhtlp" class="contact-link" target="_blank">github.com/zhtlp</a>
+        </div>
+      </section>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="about.html" class="cta-button">About Eddie</a>
       </div>
-      <div class="contact-item">
-        <span class="contact-label">GitHub:</span>
-        <a class="contact-link" href="https://github.com/eddiezhang" target="_blank">github.com/eddiezhang</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">LinkedIn:</span>
-        <a class="contact-link" href="https://linkedin.com/in/eddiezhang" target="_blank">linkedin.com/in/eddiezhang</a>
-      </div>
-    </div>
-  </main>
-
+    </main>
+  </div>
   <footer class="footer">
     <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
   </footer>

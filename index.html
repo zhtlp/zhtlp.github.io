@@ -3,57 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Eddie</title>
+  <title>Home - Eddie Zhang</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="navbar">
-    <h1 class="site-title">Eddie Zhang</h1>
-    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
-    <nav class="nav">
-      <a href="index.html"class="active">Home</a>
-      <a href="about.html" >About</a>
-      <a href="academics.html">Academics</a>
-      <a href="sports.html">Sports</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-
-  <main class="hero-section">
-    <div class="hero-image">
-      <img src="images/M1.jpeg" alt="Eddie Zhang与猫的合影" style="max-width: 338px; max-height: 420px; width: auto; height: auto;"  />
-    </div>
-    <div class="hero-text">
-      <h1>Hello, I’m Eddie Zhang</h1>
-      <p>A student, athlete, innovator and global citizen with a passion for excellence. I embrace every challenge as an opportunity to grow and constantly strive to exceed expectations. From the basketball court to the robotics arena, from academic pursuits to global adventures, I bring dedication, creativity, and heart to everything I do.</p>
-      <a href="about.html" class="cta-button">Discover My Story</a>
-    </div>
-  </main>
-
-    <section class="cards">
-    <div class="card">
-      <h2>Basketball Action</h2>
-      <p class="highlight">Athletics & Discipline</p>
-      <p>Over 10 years of basketball training. From local courts to national competitions, I thrive on teamwork and tenacity. My time on the court has taught me resilience, strategy, and the power of collective effort — skills that transcend sports and empower every aspect of my life.</p>
-      <a href="sports.html" class="more-button">More</a>
-    </div>
-    <div class="card">
-      <h2>Robotics Champion</h2>
-      <p class="highlight">Technology & Leadership</p>
-      <p>Captain of Asia-Pacific Champion robotics team. Leading innovation with code and collaboration. My passion for technology drives me to explore the future — from AI and automation to sustainable engineering. Every project is a chance to think boldly and lead with vision.</p>
-      <a href="academics.html" class="more-button">More</a>
-    </div>
-    <div class="card">
-      <h2>UBC Summer Campus</h2>
-      <p class="highlight">Explorer of the World</p>
-      <p>Traveled across China, U.S., New Zealand, Canada — even on crutches. Curiosity is my compass. I believe in the power of diverse experiences to shape perspective, build empathy, and ignite ambition. My international journey continues to inspire me to think globally and act meaningfully.</p>
-      <a href="about.html" class="more-button">More</a>
-    </div>
-  </section>
-
-
+  <div class="container">
+    <header class="navbar">
+      <h1 class="site-title">Eddie Zhang</h1>
+      <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="sports.html">Sports</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <main class="main-content">
+      <h2>Welcome</h2>
+      <div class="hero-mix">
+        <div class="hero-image">
+          <img src="images/M1.jpeg" alt="Eddie Zhang与猫的合影" class="hero-main-image"/>
+        </div>
+        <div class="hero-text">
+          <h1>Hello, I’m Eddie Zhang</h1>
+          <p>
+            A student, athlete, innovator and global citizen with a passion for excellence. I embrace every challenge as an opportunity to grow and constantly strive to exceed expectations. From the basketball court to the robotics arena, from academic pursuits to global adventures, I bring dedication, creativity, and heart to everything I do.
+          </p>
+          <a href="about.html" class="cta-button">Discover My Story</a>
+        </div>
+      </div>
+      <!-- 卡片区域保留 -->
+      <section class="cards">
+        <div class="card">
+          <h2>Basketball Action</h2>
+          <p class="highlight">Athletics & Discipline</p>
+          <p>
+            Over 10 years of basketball training. From local courts to national competitions, I thrive on teamwork and tenacity. My time on the court has taught me resilience, strategy, and the power of collective effort — skills that transcend sports and empower every aspect of my life.
+          </p>
+          <a href="sports.html" class="more-button">More</a>
+        </div>
+        <div class="card">
+          <h2>Robotics Champion</h2>
+          <p class="highlight">Technology & Leadership</p>
+          <p>
+            Captain of Asia-Pacific Champion robotics team. Leading innovation with code and collaboration. My passion for technology drives me to explore the future — from AI and automation to sustainable engineering. Every project is a chance to think boldly and lead with vision.
+          </p>
+          <a href="academics.html" class="more-button">More</a>
+        </div>
+        <div class="card">
+          <h2>UBC Summer Campus</h2>
+          <p class="highlight">Explorer of the World</p>
+          <p>
+            Traveled across China, U.S., New Zealand, Canada — even on crutches. Curiosity is my compass. I believe in the power of diverse experiences to shape perspective, build empathy, and ignite ambition. My international journey continues to inspire me to think globally and act meaningfully.
+          </p>
+          <a href="about.html" class="more-button">More</a>
+        </div>
+      </section>
+    </main>
+  </div>
   <footer class="footer">
     <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
   </footer>
