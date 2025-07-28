@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   transition: background 0.2s;
   padding-top: 120px;
-  overflow-y: scroll; /* 保证滚动条始终存在，防止页面跳动 */
+  overflow-y: scroll;
 }
 .container {
   max-width: 960px;
@@ -148,12 +148,13 @@ body {
 /* ====== 卡片区 ====== */
 .cards {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   padding: 2rem 0;
   max-width: 860px;
   margin: 0 auto;
+  align-content: flex-start;
 }
 .card {
   background: #fff;
@@ -162,10 +163,12 @@ body {
   padding: 1.5rem 1.2rem;
   max-width: 320px;
   min-width: 220px;
-  flex: 1 0 220px;
+  width: 100%;
+  flex: 0 1 320px;
   text-align: center;
   margin: 0.5rem 0;
   transition: transform 0.21s, box-shadow 0.21s;
+  box-sizing: border-box;
 }
 .card:hover, .card:focus {
   transform: translateY(-10px) scale(1.03);
@@ -273,8 +276,8 @@ body {
     max-width: 100vw;
     max-height: 48vh;
   }
-  .cards { flex-direction: column; padding: 1rem 0; gap: 1rem; }
-  .card { max-width: 100%; padding: 1rem; }
+  .cards { flex-direction: column; padding: 1rem 0; gap: 1rem; max-width: 100%; }
+  .card { max-width: 100%; padding: 1rem; min-width: unset; margin: 0.5rem 0; flex: 1 1 100%; }
   .contact-info {
     max-width: 100%;
     padding: 1rem 0.5rem;
@@ -291,6 +294,7 @@ body {
   }
   .main-content { padding: 0.6rem 0.1rem; }
   .cards { padding: 0.5rem; gap: 0.5rem; }
+  .card { max-width: 100%; width: 100%; padding: 0.8rem 0.2rem; margin: 0.3rem 0; flex: 1 1 100%; }
   .footer { font-size: 0.8rem; padding: 0.5rem; }
   .contact-info { padding: 0.8rem 0.2rem; }
 }
