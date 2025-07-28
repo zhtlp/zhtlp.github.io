@@ -1,4 +1,4 @@
-/* ====== 基础与导航、容器同前 ====== */
+/* ====== 基础与导航、容器 ====== */
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -14,12 +14,15 @@ body {
   min-height: 100vh;
   transition: background 0.2s;
   padding-top: 120px;
+  overflow-y: scroll; /* 保证滚动条始终存在，防止页面跳动 */
 }
 .container {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 1.2rem;
 }
+
+/* ====== 导航栏 ====== */
 .navbar {
   position: fixed;
   top: 0;
@@ -59,7 +62,6 @@ body {
   box-shadow: 0 1px 6px rgba(0,0,0,0.04);
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 0;
 }
 .nav a {
   margin: 0 1rem;
@@ -71,7 +73,6 @@ body {
   border-radius: 20px;
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
   letter-spacing: 0.02em;
-  display: inline-block;
   outline: none;
 }
 .nav a.active,
@@ -90,7 +91,6 @@ body {
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.06);
   max-width: 960px;
-  box-sizing: border-box;
 }
 
 /* ====== 图文混排区域 ====== */
@@ -103,7 +103,6 @@ body {
   margin: 0 auto 2.5rem auto;
 }
 .hero-image {
-  flex: 0 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -111,8 +110,6 @@ body {
 .hero-main-image {
   max-width: 450px;
   max-height: 450px;
-  width: auto;
-  height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.10);
 }
@@ -197,7 +194,7 @@ body {
   color: #fff;
 }
 
-/* ====== Contact Info ====== */
+/* ====== 联系方式区 ====== */
 .contact-info {
   max-width: 600px;
   margin: 2rem auto;
@@ -222,7 +219,7 @@ body {
   margin-top: 2.5rem;
 }
 
-/* ====== 響應式適配 ====== */
+/* ====== 响应式适配 ====== */
 @media (max-width: 900px) {
   .container, .main-content, .hero-mix {
     max-width: 100%;
@@ -242,11 +239,8 @@ body {
   .site-title { font-size: 1.3rem; }
   .site-subtitle { font-size: 0.85rem; }
   .nav {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     padding: 0.2rem 0.3rem;
     border-radius: 16px;
@@ -260,8 +254,6 @@ body {
     font-size: 1rem;
     text-align: center;
     min-width: 110px;
-    max-width: 100%;
-    box-sizing: border-box;
     border-radius: 14px;
   }
   .main-content {
@@ -303,7 +295,7 @@ body {
   .contact-info { padding: 0.8rem 0.2rem; }
 }
 
-/* ====== 主區塊標題 ====== */
+/* ====== 主区块标题 ====== */
 .section > h2, main > h2 {
   text-align: center;
   font-size: 1.7rem;
@@ -313,7 +305,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* ====== 分隔線 ====== */
+/* ====== 分隔线 ====== */
 hr {
   border: none;
   border-top: 1px solid #e0e0e0;
