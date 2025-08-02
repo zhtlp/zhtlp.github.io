@@ -4,38 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery 2010</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="../styles.css">
   <style>
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+    .responsive-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 33px 33px;
+      margin: 48px auto 72px auto;
+      max-width: 1800px;
     }
-    .photo-card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .responsive-gallery .img-wrap {
+      width: 262px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border-radius: 12px;
+      box-shadow: none;
       overflow: hidden;
-      text-align: center;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      cursor: pointer;
     }
-    .photo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    .responsive-gallery img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border: none;
+      box-shadow: none;
+      background: #f6f6f6;
+      border-radius: 10px;
+      transition: box-shadow 0.18s;
+      cursor: pointer;
     }
-    .caption {
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      color: #333;
+    .responsive-gallery .img-wrap:hover img {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 1200px) {
+      .responsive-gallery .img-wrap { width: 180px; height: 270px; }
+      .responsive-gallery { gap: 18px 18px; }
+    }
+    @media (max-width: 700px) {
+      .responsive-gallery .img-wrap { width: 120px; height: 180px; }
+      .responsive-gallery { gap: 8px 8px; }
+    }
+    @media (max-width: 480px) {
+      .responsive-gallery .img-wrap { width: 96vw; height: 60vw; max-width: 98vw; }
+      .responsive-gallery { gap: 4vw 0; }
+    }
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.82);
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .image-modal.active {
+      display: flex;
+    }
+    .image-modal img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      background: #fff;
+      animation: popup 0.18s;
+      cursor: pointer;
+    }
+    @keyframes popup {
+      from { transform: scale(0.85); opacity: 0.2;}
+      to   { transform: scale(1);    opacity: 1;}
+    }
+    .image-modal .close-modal {
+      position: absolute;
+      top: 24px;
+      right: 36px;
+      font-size: 2.8rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10002;
+      line-height: 1;
+      font-family: Arial, sans-serif;
+      filter: drop-shadow(0 0 2px #222);
+    }
+    @media (max-width: 600px) {
+      .image-modal .close-modal {
+        top: 12px; right: 14px; font-size: 2.1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header class="navbar">
     <h1 class="site-title">Eddie Zhang</h1>
+    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
     <nav class="nav">
-           <a href="../index.html">Home</a>
+      <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
       <a href="../academics.html">Academics</a>
       <a href="../sports.html">Sports</a>
@@ -45,38 +121,346 @@
   </header>
 
   <main>
-    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photos from 2010</h2>
-    <div class="photo-grid">
-      
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2010+Photo+1" alt="Photo 1">
-        <div class="caption">Description of photo 1 in 2010</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2010+Photo+2" alt="Photo 2">
-        <div class="caption">Description of photo 2 in 2010</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2010+Photo+3" alt="Photo 3">
-        <div class="caption">Description of photo 3 in 2010</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2010+Photo+4" alt="Photo 4">
-        <div class="caption">Description of photo 4 in 2010</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2010+Photo+5" alt="Photo 5">
-        <div class="caption">Description of photo 5 in 2010</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2010+Photo+6" alt="Photo 6">
-        <div class="caption">Description of photo 6 in 2010</div>
-      </div>
+    <h1 style="text-align:center; margin-top:2em;">Gallery 2010</h1>
+    <div class="responsive-gallery">
+      <div class="img-wrap"><img src="2010/2010-1.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-2.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-3.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-4.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-5.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-6.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-7.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-8.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-9.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-10.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-11.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-12.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-13.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-14.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-15.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-16.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-17.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-18.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-19.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-20.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-21.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-22.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-23.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-24.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-25.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-26.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-27.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-28.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-29.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-30.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-31.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-32.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-33.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-34.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-35.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-36.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-37.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-38.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-39.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-40.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-41.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-42.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-43.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-44.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-45.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-46.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-47.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-48.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-49.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-50.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-51.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-52.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-53.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-54.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-55.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-56.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-57.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-58.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-59.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-60.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-61.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-62.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-63.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-64.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-65.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-66.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-67.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-68.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-69.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-70.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-71.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-72.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-73.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-74.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-75.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-76.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-77.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-78.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-79.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-80.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-81.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-82.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-83.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-84.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-85.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-86.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-87.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-88.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-89.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-90.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-91.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-92.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-93.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-94.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-95.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-96.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-97.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-98.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-99.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-100.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-101.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-102.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-103.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-104.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-105.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-106.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-107.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-108.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-109.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-110.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-111.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-112.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-113.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-114.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-115.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-116.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-117.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-118.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-119.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-120.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-121.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-122.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-123.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-124.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-125.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-126.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-127.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-128.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-129.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-130.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-131.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-132.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-133.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-134.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-135.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-136.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-137.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-138.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-139.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-140.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-141.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-142.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-143.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-144.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-145.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-146.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-147.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-148.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-149.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-150.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-151.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-152.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-153.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-154.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-155.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-156.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-157.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-158.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-159.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-160.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-161.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-162.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-163.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-164.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-165.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-166.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-167.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-168.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-169.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-170.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-171.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-172.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-173.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-174.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-175.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-176.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-177.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-178.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-179.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-180.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-181.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-182.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-183.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-184.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-185.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-186.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-187.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-188.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-189.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-190.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-191.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-192.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-193.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-194.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-195.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-196.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-197.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-198.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-199.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-200.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-201.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-202.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-203.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-204.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-205.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-206.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-207.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-208.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-209.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-210.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-211.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-212.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-213.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-214.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-215.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-216.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-217.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-218.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-219.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-220.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-221.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-222.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-223.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-224.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-225.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-226.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-227.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-228.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-229.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-230.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-231.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-232.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-233.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-234.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-235.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-236.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-237.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-238.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-239.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-240.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-241.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-242.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-243.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-244.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-245.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-246.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-247.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-248.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-249.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-250.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-251.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-252.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-253.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-254.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-255.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-256.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-257.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-258.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-259.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-260.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-261.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-262.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-263.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-264.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-265.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-266.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-267.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-268.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-269.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-270.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-271.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-272.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-273.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-274.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-275.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-276.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-277.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-278.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-279.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-280.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-281.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-282.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-283.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-284.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-285.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-286.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-287.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-288.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-289.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-290.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-291.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-292.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-293.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-294.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-295.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-296.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-297.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2010/2010-298.jpg" alt="" loading="lazy"></div>
+    </div>
+
+    <div class="image-modal" id="imageModal">
+      <button class="close-modal" id="closeModalBtn" aria-label="关闭图片">×</button>
+      <img id="modalImg" src="" alt="">
     </div>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
   </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    document.querySelectorAll('.img-wrap img').forEach(img => {
+      img.addEventListener('click', function() {
+        modalImg.src = this.src;
+        modal.classList.add('active');
+      });
+    });
+    function closeModal() {
+      modal.classList.remove('active');
+      modalImg.src = '';
+    }
+    modal.addEventListener('click', function(e) {
+      closeModal();
+    });
+    closeModalBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeModal();
+    });
+    modalImg.addEventListener('click', function(e) {
+      closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
 </body>
 </html>
