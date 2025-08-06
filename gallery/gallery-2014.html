@@ -4,38 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery 2014</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="../styles.css">
   <style>
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+    .responsive-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 33px 33px;
+      margin: 48px auto 72px auto;
+      max-width: 1800px;
     }
-    .photo-card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .responsive-gallery .img-wrap {
+      width: 262px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border-radius: 12px;
+      box-shadow: none;
       overflow: hidden;
-      text-align: center;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      cursor: pointer;
     }
-    .photo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    .responsive-gallery img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border: none;
+      box-shadow: none;
+      background: #f6f6f6;
+      border-radius: 10px;
+      transition: box-shadow 0.18s;
+      cursor: pointer;
     }
-    .caption {
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      color: #333;
+    .responsive-gallery .img-wrap:hover img {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 1200px) {
+      .responsive-gallery .img-wrap { width: 180px; height: 270px; }
+      .responsive-gallery { gap: 18px 18px; }
+    }
+    @media (max-width: 700px) {
+      .responsive-gallery .img-wrap { width: 120px; height: 180px; }
+      .responsive-gallery { gap: 8px 8px; }
+    }
+    @media (max-width: 480px) {
+      .responsive-gallery .img-wrap { width: 96vw; height: 60vw; max-width: 98vw; }
+      .responsive-gallery { gap: 4vw 0; }
+    }
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.82);
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .image-modal.active {
+      display: flex;
+    }
+    .image-modal img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      background: #fff;
+      animation: popup 0.18s;
+      cursor: pointer;
+    }
+    @keyframes popup {
+      from { transform: scale(0.85); opacity: 0.2;}
+      to   { transform: scale(1);    opacity: 1;}
+    }
+    .image-modal .close-modal {
+      position: absolute;
+      top: 24px;
+      right: 36px;
+      font-size: 2.8rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10002;
+      line-height: 1;
+      font-family: Arial, sans-serif;
+      filter: drop-shadow(0 0 2px #222);
+    }
+    @media (max-width: 600px) {
+      .image-modal .close-modal {
+        top: 12px; right: 14px; font-size: 2.1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header class="navbar">
     <h1 class="site-title">Eddie Zhang</h1>
+    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
     <nav class="nav">
-        <a href="../index.html">Home</a>
+      <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
       <a href="../academics.html">Academics</a>
       <a href="../sports.html">Sports</a>
@@ -45,38 +121,279 @@
   </header>
 
   <main>
-    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photos from 2014</h2>
-    <div class="photo-grid">
-      
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2014+Photo+1" alt="Photo 1">
-        <div class="caption">Description of photo 1 in 2014</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2014+Photo+2" alt="Photo 2">
-        <div class="caption">Description of photo 2 in 2014</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2014+Photo+3" alt="Photo 3">
-        <div class="caption">Description of photo 3 in 2014</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2014+Photo+4" alt="Photo 4">
-        <div class="caption">Description of photo 4 in 2014</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2014+Photo+5" alt="Photo 5">
-        <div class="caption">Description of photo 5 in 2014</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2014+Photo+6" alt="Photo 6">
-        <div class="caption">Description of photo 6 in 2014</div>
-      </div>
+    <h1 style="text-align:center; margin-top:2em;">Gallery 2014</h1>
+    <div class="responsive-gallery">
+      <div class="img-wrap"><img src="2014/2014-1.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-2.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-3.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-4.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-5.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-6.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-7.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-8.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-9.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-10.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-11.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-12.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-13.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-14.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-15.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-16.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-17.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-18.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-19.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-20.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-21.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-22.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-23.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-24.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-25.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-26.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-27.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-28.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-29.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-30.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-31.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-32.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-33.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-34.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-35.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-36.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-37.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-38.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-39.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-40.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-41.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-42.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-43.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-44.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-45.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-46.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-47.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-48.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-49.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-50.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-51.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-52.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-53.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-54.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-55.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-56.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-57.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-58.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-59.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-60.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-61.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-62.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-63.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-64.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-65.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-66.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-67.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-68.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-69.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-70.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-71.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-72.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-73.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-74.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-75.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-76.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-77.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-78.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-79.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-80.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-81.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-82.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-83.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-84.jpg" alt="" loading="lazy"></div>
+<!--    
+  <div class="img-wrap"><img src="2014/2014-85.jpg" alt="" loading="lazy"></div>
+    -->
+  <div class="img-wrap"><img src="2014/2014-86.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-87.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-88.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-89.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-90.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-91.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-92.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-93.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-94.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-95.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-96.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-97.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-98.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-99.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-100.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-101.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-102.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-103.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-104.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-105.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-106.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-107.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-108.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-109.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-110.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-111.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-112.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-113.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-114.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-115.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-116.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-117.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-118.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-119.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-120.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-121.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-122.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-123.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-124.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-125.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-126.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-127.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-128.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-129.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-130.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-131.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-132.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-133.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-134.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-135.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-136.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-137.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-138.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-139.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-140.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-141.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-142.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-143.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-144.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-145.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-146.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-147.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-148.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-149.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-150.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-151.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-152.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-153.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-154.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-155.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-156.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-157.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-158.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-159.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-160.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-161.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-162.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-163.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-164.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-165.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-166.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-167.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-168.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-169.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-170.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-171.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-172.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-173.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-174.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-175.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-176.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-177.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-178.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-179.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-180.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-181.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-182.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-183.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-184.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-185.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-186.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-187.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-188.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-189.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-190.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-191.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-192.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-193.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-194.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-195.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-196.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-197.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-198.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-199.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-200.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-201.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-202.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-203.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-204.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-205.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-206.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-207.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-208.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-209.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-210.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-211.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-212.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-213.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-214.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-215.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-216.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-217.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-218.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-219.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-220.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-221.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-222.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-223.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-224.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-225.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-226.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-227.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-228.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2014/2014-229.jpg" alt="" loading="lazy"></div>
+    </div>
+
+    <div class="image-modal" id="imageModal">
+      <button class="close-modal" id="closeModalBtn" aria-label="关闭图片">×</button>
+      <img id="modalImg" src="" alt="">
     </div>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
   </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    document.querySelectorAll('.img-wrap img').forEach(img => {
+      img.addEventListener('click', function() {
+        modalImg.src = this.src;
+        modal.classList.add('active');
+      });
+    });
+    function closeModal() {
+      modal.classList.remove('active');
+      modalImg.src = '';
+    }
+    modal.addEventListener('click', function(e) {
+      closeModal();
+    });
+    closeModalBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeModal();
+    });
+    modalImg.addEventListener('click', function(e) {
+      closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
 </body>
 </html>
