@@ -4,38 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery 2018</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="../styles.css">
   <style>
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+    .responsive-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 33px 33px;
+      margin: 48px auto 72px auto;
+      max-width: 1800px;
     }
-    .photo-card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .responsive-gallery .img-wrap {
+      width: 262px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border-radius: 12px;
+      box-shadow: none;
       overflow: hidden;
-      text-align: center;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      cursor: pointer;
     }
-    .photo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    .responsive-gallery img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border: none;
+      box-shadow: none;
+      background: #f6f6f6;
+      border-radius: 10px;
+      transition: box-shadow 0.18s;
+      cursor: pointer;
     }
-    .caption {
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      color: #333;
+    .responsive-gallery .img-wrap:hover img {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 1200px) {
+      .responsive-gallery .img-wrap { width: 180px; height: 270px; }
+      .responsive-gallery { gap: 18px 18px; }
+    }
+    @media (max-width: 700px) {
+      .responsive-gallery .img-wrap { width: 120px; height: 180px; }
+      .responsive-gallery { gap: 8px 8px; }
+    }
+    @media (max-width: 480px) {
+      .responsive-gallery .img-wrap { width: 96vw; height: 60vw; max-width: 98vw; }
+      .responsive-gallery { gap: 4vw 0; }
+    }
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.82);
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .image-modal.active {
+      display: flex;
+    }
+    .image-modal img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      background: #fff;
+      animation: popup 0.18s;
+      cursor: pointer;
+    }
+    @keyframes popup {
+      from { transform: scale(0.85); opacity: 0.2;}
+      to   { transform: scale(1);    opacity: 1;}
+    }
+    .image-modal .close-modal {
+      position: absolute;
+      top: 24px;
+      right: 36px;
+      font-size: 2.8rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10002;
+      line-height: 1;
+      font-family: Arial, sans-serif;
+      filter: drop-shadow(0 0 2px #222);
+    }
+    @media (max-width: 600px) {
+      .image-modal .close-modal {
+        top: 12px; right: 14px; font-size: 2.1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header class="navbar">
     <h1 class="site-title">Eddie Zhang</h1>
+    <p class="site-subtitle">A journey of resilience, brilliance, and boundless curiosity.</p>
     <nav class="nav">
-        <a href="../index.html">Home</a>
+      <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
       <a href="../academics.html">Academics</a>
       <a href="../sports.html">Sports</a>
@@ -45,38 +121,258 @@
   </header>
 
   <main>
-    <h2 style="text-align:center; padding: 2rem 0 1rem;">Photos from 2018</h2>
-    <div class="photo-grid">
-      
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2018+Photo+1" alt="Photo 1">
-        <div class="caption">Description of photo 1 in 2018</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2018+Photo+2" alt="Photo 2">
-        <div class="caption">Description of photo 2 in 2018</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2018+Photo+3" alt="Photo 3">
-        <div class="caption">Description of photo 3 in 2018</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2018+Photo+4" alt="Photo 4">
-        <div class="caption">Description of photo 4 in 2018</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2018+Photo+5" alt="Photo 5">
-        <div class="caption">Description of photo 5 in 2018</div>
-      </div>
-      <div class="photo-card">
-        <img src="https://via.placeholder.com/400x300?text=2018+Photo+6" alt="Photo 6">
-        <div class="caption">Description of photo 6 in 2018</div>
-      </div>
+    <h1 style="text-align:center; margin-top:2em;">Gallery 2018</h1>
+    <div class="responsive-gallery">
+      <div class="img-wrap"><img src="2018/2018-1.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-2.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-3.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-4.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-5.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-6.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-7.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-8.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-9.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-10.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-11.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-12.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-13.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-14.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-15.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-16.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-17.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-18.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-19.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-20.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-21.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-22.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-23.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-24.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-25.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-26.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-27.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-28.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-29.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-30.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-31.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-32.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-33.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-34.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-35.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-36.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-37.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-38.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-39.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-40.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-41.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-42.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-43.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-44.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-45.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-46.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-47.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-48.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-49.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-50.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-51.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-52.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-53.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-54.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-55.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-56.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-57.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-58.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-59.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-60.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-61.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-62.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-63.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-64.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-65.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-66.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-67.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-68.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-69.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-70.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-71.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-72.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-73.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-74.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-75.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-76.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-77.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-78.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-79.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-80.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-81.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-82.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-83.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-84.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-85.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-86.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-87.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-88.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-89.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-90.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-91.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-92.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-93.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-94.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-95.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-96.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-97.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-98.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-99.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-100.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-101.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-102.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-103.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-104.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-105.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-106.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-107.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-108.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-109.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-110.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-111.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-112.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-113.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-114.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-115.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-116.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-117.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-118.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-119.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-120.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-121.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-122.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-123.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-124.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-125.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-126.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-127.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-128.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-129.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-130.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-131.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-132.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-133.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-134.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-135.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-136.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-137.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-138.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-139.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-140.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-141.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-142.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-143.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-144.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-145.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-146.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-147.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-148.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-149.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-150.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-151.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-152.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-153.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-154.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-155.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-156.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-157.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-158.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-159.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-160.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-161.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-162.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-163.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-164.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-165.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-166.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-167.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-168.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-169.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-170.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-171.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-172.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-173.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-174.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-175.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-176.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-177.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-178.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-179.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-180.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-181.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-182.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-183.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-184.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-185.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-186.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-187.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-188.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-189.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-190.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-191.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-192.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-193.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-194.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-195.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-196.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-197.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-198.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-199.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-200.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-201.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-202.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-203.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-204.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-205.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-206.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-207.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-208.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-209.jpg" alt="" loading="lazy"></div>
+      <div class="img-wrap"><img src="2018/2018-210.jpg" alt="" loading="lazy"></div>
+    </div>
+
+    <div class="image-modal" id="imageModal">
+      <button class="close-modal" id="closeModalBtn" aria-label="关闭图片">×</button>
+      <img id="modalImg" src="" alt="">
     </div>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Eddie Zhang. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Eddie Zhang. All rights reserved.</p>
   </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    document.querySelectorAll('.img-wrap img').forEach(img => {
+      img.addEventListener('click', function() {
+        modalImg.src = this.src;
+        modal.classList.add('active');
+      });
+    });
+    function closeModal() {
+      modal.classList.remove('active');
+      modalImg.src = '';
+    }
+    modal.addEventListener('click', function(e) {
+      closeModal();
+    });
+    closeModalBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeModal();
+    });
+    modalImg.addEventListener('click', function(e) {
+      closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
 </body>
 </html>
