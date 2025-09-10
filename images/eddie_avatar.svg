@@ -1,9 +1,0 @@
-<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
- <circle cx="60" cy="60" r="58" fill="#d2edfa" stroke="#b8e4fa" stroke-width="4"/>
- <ellipse cx="60" cy="65" rx="32" ry="38" fill="#f9f9f9" stroke="#b8e4fa" stroke-width="2"/>
- <circle cx="60" cy="54" r="23" fill="#ffe1bb"/>
- <ellipse cx="48" cy="54" rx="3" ry="4" fill="#2c3e50"/>
- <ellipse cx="72" cy="54" rx="3" ry="4" fill="#2c3e50"/>
- <path d="M54 70 Q60 75, 66 70" stroke="#2c3e50" stroke-width="2" fill="none"/>
- <text x="60" y="110" font-size="18" text-anchor="middle" fill="#50c5b7" font-family="Segoe UI">Eddie</text>
-</svg>

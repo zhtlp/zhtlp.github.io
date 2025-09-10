@@ -1,6 +1,0 @@
-<svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
- <rect x="10" y="10" width="380" height="160" rx="25" fill="#e3f0ff"/>
- <circle cx="200" cy="90" r="45" fill="#50c5b7"/>
- <text x="200" y="100" font-size="42" text-anchor="middle" fill="#fff" font-family="Segoe UI">🏀</text>
- <text x="200" y="45" font-size="26" text-anchor="middle" fill="#2d6af3" font-family="Segoe UI">Sports</text>
-</svg>

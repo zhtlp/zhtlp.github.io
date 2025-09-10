@@ -1,5 +1,0 @@
-<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
- <rect x="10" y="10" width="160" height="160" rx="25" fill="#c7e2ff"/>
- <polygon points="60,40 130,90 60,140" fill="#50c5b7"/>
- <text x="90" y="170" font-size="18" text-anchor="middle" fill="#2d6af3" font-family="Segoe UI">Video</text>
-</svg>
